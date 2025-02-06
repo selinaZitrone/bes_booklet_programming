@@ -1,0 +1,6 @@
+- goal: reproducibility
+- dependency management
+  - why: software changes over time
+- namespace conflicts
+- explicitly set random seeds
+- docker: already advanced but maybe a sentence and a link

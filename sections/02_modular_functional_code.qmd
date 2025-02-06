@@ -1,0 +1,6 @@
+
+- small functions
+- avoid copy-pasting
+- document your functions
+- defensive programming: anticipating errors and writing robust code
+- debugging and logging -> Detect mistakes early on

@@ -1,0 +1,30 @@
+---
+title: "BES booklet programming"
+---
+
+## Introduction
+
+- Why good practice programming
+
+## Structured workflow/readable code
+
+{{< include sections/01_structured_workflow.qmd >}}
+
+## Modular and functional code
+
+{{< include sections/02_modular_functional_code.qmd >}}
+
+## Testing code
+
+{{< include sections/03_testing_code.qmd >}}
+
+## Share code
+
+{{< include sections/04_sharable_code.qmd >}}
+
+## Conclusion
+
+- Checklist
+
+## References
+

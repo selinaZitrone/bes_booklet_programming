@@ -1,0 +1,21 @@
+- Develop consistent workflows/habits/conventions for your projects
+  - apply them to every project
+  - start simple
+
+- Think about your workflow beforehand
+
+- While working, keep in mind that someone else (or you from the future) wants to understand, run and reuse the code
+- Formatting code and style guides
+    - Auto-formatting in IDEs
+
+- Have a naming convention for
+  - object and function names
+  - files (link to the project structure section)
+
+- Document and comment your code properly
+  - Comment on why
+- Properly structure your scripts
+  - Consider a standardized header explaining purpose of script, author, etc.
+  - load packages on top, then global variables, paths etc. and only then the code
+  - Separate your scripts into sections
+  - If a script becomes to long, split it

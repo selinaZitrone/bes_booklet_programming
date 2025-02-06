@@ -1,0 +1,19 @@
+project:
+  type: default  # Works even for a single document
+
+metadata:
+  authors:
+    - name: Tanya Strydom
+      affiliation: University of Sheffield
+      roles: writing
+      corresponding: true
+    - name: Selina Baldauf
+      affiliation: Freie Universität Berlin
+      roles: writing
+      corresponding: true
+
+format:
+  html:
+    toc: true
+
+bibliography: references.bib
