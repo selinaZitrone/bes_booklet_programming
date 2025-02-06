@@ -12,3 +12,5 @@ For a first draft, we divided the sections as follows:
 - `02_modular_functional_code`: Tanya
 - `03_testing_code`: Tanya
 - `04_sharable_code`: Selina
+
+The separate sections are then combined in the `main.qmd` document.
