@@ -1,3 +1,7 @@
--   Unit tests
--   Integration tests
--   Test-driven development
+In the experimental sciences, rigorous testing is applied to ensure that results are accurate, reproducible and reliable. Testing will show that the experimental setup is doing what it is meant to do and will quantify any systematic biases. Results of experiments will not be trusted without such tests; why should your code be any different? Testing scientific code allows you to be sure that it is working as intended and to understand and quantify any limitations of the code. Using tests can also help to speed up the code development process by finding errors early on. Most people will use informal testing by loading a function they have written and running ad hoc tests in the command line. Unit testing allows you to create formalised and automated tests of each section of your code. While unit testing may not be entirely necessary for many beginner coders, once you start writing your own functions, the recommended next step should be to start writing unit tests to go along with these, and if you are writing packages these tests are essential. A guide to testing using the test-that package in R can be found in Hadley Wickham’s online R Packages book. For those using Python, the nose package provides unit testing functionality.
+
+###  Unit tests
+
+###   Integration tests
+
+###   Test-driven development

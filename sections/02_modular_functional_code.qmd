@@ -1,6 +1,17 @@
+Often when you are analysing data, you need to repeat the same task many times. For example, you might have several files that all need loading and cleaning in the same way, or you might need to perform the same analysis for multiple species or parameters. The first instinct when faced with such a task would be to copy and paste previous blocks of code to repeat these tasks. This, however, is likely to introduce errors into your code, and therefore limit reproducibility. You can use functions to repeat tasks in a more standardised way. Using functions allows you to break your code down into modules, and therefore has the added advantage that it helps to provide better structure to scripts. A function is a self-contained block of code that performs a single action. A function takes in a set of arguments, applies the action, and returns an object of any data type. A function should not rely on data from outside of the function, and should not manipulate data outside of the function.
 
-- small functions
-- avoid copy-pasting
-- document your functions
-- defensive programming: anticipating errors and writing robust code
-- debugging and logging -> Detect mistakes early on
+### Why write functions? (the anatomy of a function)
+
+> The key to writing functions is to perform a single action per function
+
+small jobs (functions); avoid copy-pasting
+
+### Writing your furst function (do's and don'ts)
+
+document your functions; input -> operation -> output; specific names
+
+### Defensive programming: anticipating errors and writing robust code
+
+Defensive programming is a technique to ensure that code fails with well-defined errors, i.e. where you know it shouldn’t work. The key here is to ‘fail fast’ and ensure that the code throws an error as soon as something unexpected happens. This creates a little more work for the programmer, but makes debugging code a lot easier at a later date. By applying defensive programming and adding in these checks to the code, you can find unexpected behaviour sooner and with more meaningful error messages.
+
+### debugging and logging -> Detect mistakes early on
