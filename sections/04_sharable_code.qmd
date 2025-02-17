@@ -1,6 +1,53 @@
 - goal: reproducibility
-- dependency management
-  - why: software changes over time
+- your code has to run somewhere else and produce the same outcome
+  - colleagues computer
+  - HPC
+  - unknown scientist who downloads your analysis
+- Also here: if unsure, try it.
+  - Send your code to a colleague and ask them to run it or put it on a different computer and try it yourself
+- Think about thing that will be different on another person't machine
+  - paths
+  - random numbers
+  - packages/software
+  - OS
+
+## Absolute vs. relative paths
+
+- Code does not contain absolute paths that only exist on your machine
+- reference to project structure section
+- in R: no more setwd(), here pacakge
+- Use a relative project structure
+
+## Dependency management
+
+- why: software changes over time
+- 
+For someone else to be able to reproduce the results included in your report, you need to provide more than the code and the data. You also need to document the exact versions of all the packages, libraries, and software you used, and potentially your operating system as well as your hardware.
+
+R itself is very stable, and the core team of developers takes backward compatibility (old code works with recent versions of R) very seriously. However, default values in some functions change, and new functions get introduced regularly. If you wrote your code on a recent version of R and give it to someone who has not upgraded recently, they may not be able to run your code. Code written for one version of a package may produce very different results with a more recent version.  Documenting and managing the dependencies of your project correctly can be complicated. However, even simple documentation that helps others understand the setup you used can have a big impact. The following are three levels of complexity to document the dependencies for your projects.
+
 - namespace conflicts
-- explicitly set random seeds
-- docker: already advanced but maybe a sentence and a link
+  - Maybe this can be a callout box with an example and the tip to prefix the
+    functions with the package name especially when loading multiple packages
+
+#### 1: Show packages that you used
+
+With R, the simplest (but a useful and important) approach to document your dependencies is to report the output ofsessionInfo() (ordevtools::session_ info()). Among other information, this will show all the packages and their versions that are loaded in the session you used to run your analysis. If someone wants to recreate your analysis, they will know which packages they will need to install.
+
+- Add a readme with all package versions and the software versions you used
+
+#### 2: Use a package manager
+
+- in R this is renv
+
+#### 3: Use a container
+
+- Docker
+- R rocker pkg
+- advanced, add a sentence and a link
+
+A step further in complexity is to use Docker (docker.com). With Docker you recreate an entire operating system with all the software, data, and packages needed for your analysis. It is more technical to set up but it allows you to distribute the exact same environment as the one you used. If you want others to be able reproduce your results, and your analysis depends on software that can be difficult to install, it is an option that might be worth exploring.
+
+## Other things to consider
+
+- Set a seed

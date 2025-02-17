@@ -1,21 +1,64 @@
+## General principles
+
+- What is our goal? Write reproducible code that others can
+  - understand and use and that is robust
+  - this makes it also more fun to code
+- In the beginning, it is difficult to follow all these rules
+- It's fun to write nice code
+- Important thing is to start and improve over time
+  - Don't think you need to have the perfect workflow from the beginning
 - Develop consistent workflows/habits/conventions for your projects
   - apply them to every project
   - start simple
 
-- Think about your workflow beforehand
-
 - While working, keep in mind that someone else (or you from the future) wants to understand, run and reuse the code
-- Formatting code and style guides
-    - Auto-formatting in IDEs
+ - this helps to keep the code clean and structured
+ - Get feedback: You can send your code to a friend or colleage and ask them if they can understand it
 
-- Have a naming convention for
-  - object and function names
-  - files (link to the project structure section)
+## Structure your scripts
 
-- Document and comment your code properly
-  - Comment on why
 - Properly structure your scripts
   - Consider a standardized header explaining purpose of script, author, etc.
   - load packages on top, then global variables, paths etc. and only then the code
-  - Separate your scripts into sections
+  - Separate your scripts into sections if they are long
+    - Tip (Use the document outline to jump between these sections)
   - If a script becomes to long, split it
+- You can use code snippets or script templates that you just fill out
+  
+## Follow a style guide
+
+- Basis of readable code is consistency
+  - Especially important in teams or when sharing code
+- A style guide defines thing like 
+  - indentation
+  - naming conventions for variables and functions
+  - language specific things like where to add a new line with ggplot etc.
+- Choose a style and stick to it
+- Don't have to reinvent the wheel. There are style guides out there for most languages.
+  - see tidyverse, python, Julia styleguides
+- Use auto-formatting tools that are integrated in your IDEs
+  - No headaches about formatting anymore
+- Use linters to check your code for style issues
+  - e.g. lintr for R, but also just the hints from your IDE
+
+## Have a naming convention
+
+- Naming conventions for variables and functions are described in style guides
+  but they cannot be automatically corrected by your IDE formatting tool
+- Also here it's important that you are consistent
+  - Give yourself a rule and stick to it
+  - You can check out the style guides to see what they recommend
+- Here are some general guidelines to follow
+  - Use descriptive names
+  - variable names
+    - use nouns
+  - function names
+    - use verbs
+  - Files names
+    - files (link to the project structure section)
+
+## Comment your code
+
+- A comment is a line of code that is visible, but does not get run with the rest of the script. In R and Python this is signified by beginning the line with a #
+- One good principle to adhere to is to comment the ‘why’ rather than the ‘what’. The code itself tells the reader what is being done, it is far more important to document the reasoning behind a particular section of code or, if it is doing something nonstandard or complicated, to take some time to describe that section of code
+- Also here: Think about what someone needs who has no idea of what you did
