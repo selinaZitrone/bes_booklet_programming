@@ -1,47 +1,100 @@
 ## General principles
 
-- What is our goal? Write reproducible code that others can
-  - understand and use and that is robust
-  - this makes it also more fun to code
-- In the beginning, it is difficult to follow all these rules
-- It's fun to write nice code
-- Important thing is to start and improve over time
-  - Don't think you need to have the perfect workflow from the beginning
-- Develop consistent workflows/habits/conventions for your projects
-  - apply them to every project
-  - start simple
 
-- While working, keep in mind that someone else (or you from the future) wants to understand, run and reuse the code
- - this helps to keep the code clean and structured
- - Get feedback: You can send your code to a friend or colleage and ask them if they can understand it
+- Good news: you don't have to reinvent the wheel. There are many general and language-specific guidelines 
+you can follow to make your code reproducible, legible and maintainable.
+- The main goal of all these rules is to make your code standardized/predictable/consistent
+  - This means that other users (and you from the future) don't need to put more effort than
+  needed into understanding the code. They know what to expect and can quickly orient themselves.
+  Therefore they can jump to the interesting part (the actual results/method) quickly
+- One thing to remember: "Perfect is the enemy of good"
+  - If you are just starting on your journey to good coding practice, don't 
+  feel overwhelmed by all the rules and conventions. You don't need to have a perfect
+  workflow from the beginning. Start implementing one of them and go from there.
+- Over time, the goal is to develop a habit and consistent workflows for reproducible code
+  - You will see that this happens almost automatically because you will notice that
+  writing reproducible and legible code does not make coding more burdonsome but actually 
+  faster, more fun and more rewarding.
+- Until that happens, you can use the guidelines below, apply the checklist in the end
+to your projects
+- What you can also be helpful: While coding, imagine how someone else (or your from
+2 years in the future) will see the project for the first time. Will they be able
+to understand and use your project? The goal of writing reproducible code is, that the
+answer to that question is "yes". 
+  - You can also do this in a very practical way by sending you project to a colleague 
+  and ask them to try and understand what's going on and run the code by themselves.
 
-## Structure your scripts
+## Plan ahead
 
-- Properly structure your scripts
-  - Consider a standardized header explaining purpose of script, author, etc.
-  - load packages on top, then global variables, paths etc. and only then the code
-  - Separate your scripts into sections if they are long
-    - Tip (Use the document outline to jump between these sections)
-  - If a script becomes to long, split it
-- You can use code snippets or script templates that you just fill out
-  
-## Follow a style guide
+- It is easier to implment the guidelines while writing code instead of trying to 
+"clean it all up in the end"
+- Before starting to code, think about all aspects of reproducible code that you 
+want to follow while coding
+- Optionally, write down the rules for contributing code to your project
+  - This can be very useful when working collaboratively
 
-- Basis of readable code is consistency
-  - Especially important in teams or when sharing code
-- A style guide defines thing like 
-  - indentation
-  - naming conventions for variables and functions
-  - language specific things like where to add a new line with ggplot etc.
-- Choose a style and stick to it
-- Don't have to reinvent the wheel. There are style guides out there for most languages.
-  - see tidyverse, python, Julia styleguides
+## Have a consistent coding style
+
+- Consistency is Key:
+  - Reinforce that consistency in coding style improves readability and maintainability. A consistent style helps collaborators quickly understand the logic
+
+### Follow a style guide
+
+- Every coding language has a style guide that provides guidelines for things like 
+  indentation, spacing and naming conventions for variables and functions.
+- We recommend that you have a look at the style guide for the languages that you
+  are using (tidyverse styleguide for R, pyhthon Pep8, Julia???)
+- The good news is that there are many tools out there that help help enforce style rules across a codebase.
+- There are two main types of tools that help you: linters and formatters
+  - linters: they analyse your code and tell you where you can improve on the coding style
+  - formatters: these tools can auto-format your entire script to get rid of any 
+  inconsistencies and deviations from a defined style guide
+  - Using these tools is an easy win to improve your code base and it is very satisfying to
+  see your whole script automatically transforming into a good practice style
+
+::: {.callout-tip}
+
+## R and R Studio
+
+- In RStudio, the command pallete is very useful for these operations. You can
+  open it with `Ctrl + Shift + P` on Windows and `xxx` on Mac
+- To format your script automatically, you can open the command pallete and search for "format" to get all
+  the formatting options
+    - You can chose the "Code formatter" which by default is "Styler" and applies the tidyverse style guide
+    - You can toggle to "Reformat documents on save" so you don't have to manually trigger reformatting
+    - You can manually trigger the reformatting by clicking "Reformat current document"
+- Other option: Set a keyboard shortcut of your choice to format your script.
+  - Tools -> Modify keyboard shortcuts, search for the command "Reformat Current Document" and type the
+  desired shortcut in the "Shortcut" column of the table
+- To lint your script or entire package, look for "lint" in the command pallette. This will
+  give you the option to "Lint current file" or "Lint current package"
+  - You will get a list of all style problems in your code printed into the console area and
+  you will have blue information icons on the left side of your script whenever you can improve
+
+## Python and VScode
+
+- 
+
+
+:::
+
+
 - Use auto-formatting tools that are integrated in your IDEs
   - No headaches about formatting anymore
 - Use linters to check your code for style issues
   - e.g. lintr for R, but also just the hints from your IDE
 
+- Elaboration: Provide a short discussion on how using automated tools (linters/formatters) can help enforce style rules across a codebase.
+  
 ## Have a naming convention
+
+- Clear and Descriptive Names:
+  - Point to add: Stress the importance of using names that clearly indicate the purpose or content of variables, functions, and modules.
+  - Elaboration: Include examples showing the difference between vague names (e.g., temp, data1) and descriptive ones (e.g., temperature_readings, user_data).
+- Consistency Across Projects:
+  - Point to add: Recommend establishing and following naming conventions throughout a project. This can include rules for capitalization (snake_case vs. camelCase) and abbreviations.
+  - Elaboration: Provide a side note or call-out box for each language if there are community-preferred naming styles (e.g., snake_case in Python, lowerCamelCase in JavaScript but note any specifics for R and Julia).
+
 
 - Naming conventions for variables and functions are described in style guides
   but they cannot be automatically corrected by your IDE formatting tool
@@ -62,3 +115,23 @@
 - A comment is a line of code that is visible, but does not get run with the rest of the script. In R and Python this is signified by beginning the line with a #
 - One good principle to adhere to is to comment the ‘why’ rather than the ‘what’. The code itself tells the reader what is being done, it is far more important to document the reasoning behind a particular section of code or, if it is doing something nonstandard or complicated, to take some time to describe that section of code
 - Also here: Think about what someone needs who has no idea of what you did
+
+- Purpose Over Redundancy:
+  - Point to add: Encourage comments that explain the why rather than the what (which should be clear from good naming and structure).
+  - Elaboration: Give examples comparing redundant comments with insightful ones that provide context or reasoning behind a complex algorithm or decision.
+- Updating Comments:
+  - Point to add: Remind readers to update comments as the code evolves to avoid outdated or misleading information.
+  - Elaboration: Perhaps mention practices like code reviews that include checking comment accuracy.
+- Inline vs. Block Comments:
+  - Point to add: Differentiate when to use inline comments (for short explanations) versus block comments (for summarizing sections of code or providing detailed explanations).
+- 
+## Structure your scripts
+
+- 
+- Properly structure your scripts
+  - Consider a standardized header explaining purpose of script, author, etc.
+  - load packages on top, then global variables, paths etc. and only then the code
+  - Separate your scripts into sections if they are long
+    - Tip (Use the document outline to jump between these sections)
+  - If a script becomes to long, split it
+- You can use code snippets or script templates that you just fill out
