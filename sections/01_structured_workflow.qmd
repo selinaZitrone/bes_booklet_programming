@@ -73,42 +73,48 @@ want to follow while coding
 
 ## Python and VScode
 
-- 
+- VScode also has a command palette that you can open with `Ctrl + Shift + P` on Windows and `XXX` on Mac
+- To format your script automatically, you can search for "Format Document" in the command palette
+- You can also open the VScode settings and look for the "Format on Save" option that you can toggle to trigger automatic formatting
+- In the VScod "Format" settings, you can also select the default formatter to be used
 
+Often, you can also include a custom style file in your projects and tell the formatter to
+use the style file. However, this is more advanced.
 
 :::
-
-
-- Use auto-formatting tools that are integrated in your IDEs
-  - No headaches about formatting anymore
-- Use linters to check your code for style issues
-  - e.g. lintr for R, but also just the hints from your IDE
-
-- Elaboration: Provide a short discussion on how using automated tools (linters/formatters) can help enforce style rules across a codebase.
   
 ## Have a naming convention
 
-- Clear and Descriptive Names:
-  - Point to add: Stress the importance of using names that clearly indicate the purpose or content of variables, functions, and modules.
-  - Elaboration: Include examples showing the difference between vague names (e.g., temp, data1) and descriptive ones (e.g., temperature_readings, user_data).
-- Consistency Across Projects:
-  - Point to add: Recommend establishing and following naming conventions throughout a project. This can include rules for capitalization (snake_case vs. camelCase) and abbreviations.
-  - Elaboration: Provide a side note or call-out box for each language if there are community-preferred naming styles (e.g., snake_case in Python, lowerCamelCase in JavaScript but note any specifics for R and Julia).
+- The goal of a naming convention is having clear and descriptive names that 
+  indicate the purpose or content of files, variables, functions, and modules.
+- To learn about good files names, please refer to the section on project structure
+- Use concise and descriptive object names. Variable names should usually be nouns and function names verbs. Avoid using names of existing variables or functions.
 
+:::{.callout-note}
 
-- Naming conventions for variables and functions are described in style guides
-  but they cannot be automatically corrected by your IDE formatting tool
-- Also here it's important that you are consistent
-  - Give yourself a rule and stick to it
-  - You can check out the style guides to see what they recommend
-- Here are some general guidelines to follow
-  - Use descriptive names
-  - variable names
-    - use nouns
-  - function names
-    - use verbs
-  - Files names
-    - files (link to the project structure section)
+## Examples of good and bad object names
+
+### Bad
+
+`temp`, `data1`, `data_function`, `my_function`
+
+### Good
+
+`temperature_readings`, `user_data`, `read_data`, `run_binomial_model`
+
+:::
+
+:::{.callout-tip}
+
+Each language community has a preferred naming style. In python and R this is for example to use
+`snake_case`, JavaScript uses `lowerCamelCase`.
+Checkout the style-guide of your preferred programming language to find out what the 
+community uses. But also here: The most important thing is consistency: pick a style that you
+find readable and stick to it.
+
+:::
+
+- We recommend establishing and following naming conventions throughout a project. This can include rules for capitalization (snake_case vs. camelCase) and abbreviations but also rules on how you name your functions. E.g. you might want to prefix all your helper functions with `zzz_` or something like that.
 
 ## Comment your code
 
@@ -124,10 +130,9 @@ want to follow while coding
   - Elaboration: Perhaps mention practices like code reviews that include checking comment accuracy.
 - Inline vs. Block Comments:
   - Point to add: Differentiate when to use inline comments (for short explanations) versus block comments (for summarizing sections of code or providing detailed explanations).
-- 
+  
 ## Structure your scripts
 
-- 
 - Properly structure your scripts
   - Consider a standardized header explaining purpose of script, author, etc.
   - load packages on top, then global variables, paths etc. and only then the code
