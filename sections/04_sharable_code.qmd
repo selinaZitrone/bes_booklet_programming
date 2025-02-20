@@ -6,10 +6,14 @@ structures and paths, and different operating systems. Therefore, to ensure repr
 Below are some basic tips to ensure others can run your code and obtain the same results.
 
 :::{.callout-tip}
-**Test Reproducibility**: If you are unsure whether your project is reproducible, send it to a colleague or test it on a different machine.
+
+## Test Reproducibility**
+
+If you are unsure whether your project is reproducible, send it to a colleague or test it on a different machine.
+
 :::
 
-### Write portable
+### Write portable code
 
 Portability is crucial for collaborative work and when running code on different servers. One major way to improve portability of your code is to avoid absolute paths and use relative paths instead, ensuring that the script is run from the project root folder (see project organization section).
 
@@ -141,10 +145,11 @@ using Statistics
 mean_value = Statistics.mean(data)
 ```
 
+:::
+
 ### Other Considerations
 
-- **Set a Seed**: Explicitly setting a random seed ensures reproducibility. 
-- This is important when your code involves random number generation, such as in simulations or machine learning. For this you can use `set.seed(123)` in R, `random.seed(123)` in Python and `Random.seed!(123)` in Julia.
+- **Set a Seed**: Explicitly setting a random seed ensures reproducibility. This is important when your code involves random number generation, such as in simulations or machine learning. For this you can use `set.seed(123)` in R, `random.seed(123)` in Python and `Random.seed!(123)` in Julia.
 
 
 [^1] [@herePackage]
