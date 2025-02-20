@@ -1,53 +1,150 @@
-- goal: reproducibility
-- your code has to run somewhere else and produce the same outcome
-  - colleagues computer
-  - HPC
-  - unknown scientist who downloads your analysis
-- Also here: if unsure, try it.
-  - Send your code to a colleague and ask them to run it or put it on a different computer and try it yourself
-- Think about thing that will be different on another person't machine
-  - paths
-  - random numbers
-  - packages/software
-  - OS
+The main goal of writing sharable code is to enable others to run it and obtain
+the same results as you did. However, others people have different machines with 
+different versions of the necessary software and packages, different folder 
+structure and paths and different operating systems. Therefore, in order for someone else to be able to reproduce the results included in your report, you need to provide more than the code and the data. You also need to document the exact versions of all the packages, libraries, and software you used, and potentially your operating system as well as your hardware.
 
-## Absolute vs. relative paths
+Below, you find some basic tips you can follow to make sure that others can run
+your code and obtain the same results as you did.
 
-- Code does not contain absolute paths that only exist on your machine
-- reference to project structure section
-- in R: no more setwd(), here pacakge
-- Use a relative project structure
+:::{.callout-tip}
 
-## Dependency management
+If you are unsure whether your project is reproducible or not, you can send
+to a colleague and ask them to run it or you can transfer it to a different machine to test it there.
 
-- why: software changes over time
-- 
-For someone else to be able to reproduce the results included in your report, you need to provide more than the code and the data. You also need to document the exact versions of all the packages, libraries, and software you used, and potentially your operating system as well as your hardware.
+:::
 
-R itself is very stable, and the core team of developers takes backward compatibility (old code works with recent versions of R) very seriously. However, default values in some functions change, and new functions get introduced regularly. If you wrote your code on a recent version of R and give it to someone who has not upgraded recently, they may not be able to run your code. Code written for one version of a package may produce very different results with a more recent version.  Documenting and managing the dependencies of your project correctly can be complicated. However, even simple documentation that helps others understand the setup you used can have a big impact. The following are three levels of complexity to document the dependencies for your projects.
+### Write portable
+
+Portability is very important when working collaboratively and when you want
+to share your code. Portability is also important if code is being run on another server, for example a High Performance Cluster. One way to improve portability of code is to avoid using absolute paths and use only relative paths, ensuring that the script is run from the project root folder (see project organization section). An absolute path is one that gives the full address to a folder or file. A relative path gives the location of the file from the current working directory. For example
+
+```r
+absolute_path <- "C:/Users/my_name/project_folder/data/species_dat.csv"
+relative_path <- "data/species_dat.csv"
+```
+
+You can immediately see the problem with absolute paths: they only exists on this
+one machine while relative paths exist within the project no matter how the machine's folders are structured.
+
+:::{.callout-tip}
+
+## Avoid `setwd()` in R
+
+If you organize your projects as RStudio projects, the working directory is automatically set to the project directory when you open the project. This makes your code more portable and easier to share with others. Instead of using `setwd()`, you can use the `here` package [^1] to construct paths relative to the project root.
+
+:::
+
+### Dependency management
+
+Because software changes over time, you need to make explicit which versions of
+software you used to write your code and produce your results.
+If you e.g. wrote your code on a recent version of R and give it to someone who has not upgraded recently, they may not be able to run your code. Code written for one version of a package may produce very different results with a more recent version. Documenting and managing the dependencies of your project correctly can be complicated. However, even simple documentation that helps others understand the setup you used can have a big impact. The following are three levels of complexity to document the dependencies for your projects.
 
 - namespace conflicts
   - Maybe this can be a callout box with an example and the tip to prefix the
     functions with the package name especially when loading multiple packages
 
-#### 1: Show packages that you used
+#### 1. Show packages that you used
 
-With R, the simplest (but a useful and important) approach to document your dependencies is to report the output ofsessionInfo() (ordevtools::session_ info()). Among other information, this will show all the packages and their versions that are loaded in the session you used to run your analysis. If someone wants to recreate your analysis, they will know which packages they will need to install.
+The simplest (but a useful and important) approach is to document all your 
+dependencies. This includes the version of the main software and of all 
+packages, as well as your Operating system.
 
-- Add a readme with all package versions and the software versions you used
+:::{.callout-tip}
 
-#### 2: Use a package manager
+## Find out the dependencies in different programming languages
 
-- in R this is renv
+In **R**, you can use `devtools::session_info()` to get a nicely printed table of your software, all loaded packages and their versions and your operating system. 
+Add this information in your project (e.g. in a readme file or as a dependencies.txt file).
 
+In Python, you can use pip freeze to list all installed packages and their versions. Save this information to a requirements.txt file:
+
+```shell
+pip freeze > requirements.txt
+```
+
+In Julia, you can use `Pkg.status()` to list all installed packages and their versions. Save this information to a `Project.toml` file:
+
+```julia
+using Pkg
+Pkg.status()
+```
+
+:::
+
+#### 2: Use a project local library
+
+Instead of using the packages that the user has installed on their machine globally,
+you can create a library local to the project that only includes packages used
+in the project in their correct versions. Many languages provide help for doing
+this in the form of package managers and virtual environments.
+
+Using a package manager helps ensure that the correct versions of packages are installed. This is more advanced but very useful for reproducibility.
+
+In **R**, you can use the `renv` package to manage dependencies. Initialize `renv` in your project:
+
+```r
+install.packages("renv")
+renv::init()
+```
+
+In **Python**, you can use `pip` and `virtualenv` to manage dependencies. Create a virtual environment and install packages:
+
+```python
+python -m venv env
+source env/bin/activate  # On Windows use `env\Scripts\activate`
+pip install -r requirements.txt
+```
+
+In **Julia**, you can use the built-in package manager. Create a `Project.toml` file and activate the environment:
+
+```julia
+using Pkg
+Pkg.activate(".")
+Pkg.instantiate()
+```
 #### 3: Use a container
 
-- Docker
-- R rocker pkg
-- advanced, add a sentence and a link
+A more advanced approach is to use containers, such as Docker, to encapsulate your entire environment. This ensures that your code runs in the exact same environment, regardless of the host system.
+It is more technical to set up but it allows you to distribute the exact same environment as the one you used. If you want others to be able reproduce your results, and your analysis depends on software that can be difficult to install, it is an option that might be worth exploring.
 
-A step further in complexity is to use Docker (docker.com). With Docker you recreate an entire operating system with all the software, data, and packages needed for your analysis. It is more technical to set up but it allows you to distribute the exact same environment as the one you used. If you want others to be able reproduce your results, and your analysis depends on software that can be difficult to install, it is an option that might be worth exploring.
+If you are using R, you can have a look at the `rocker` package and project that
+makes it relatively easy to encapsulate your R project in a Docker container. 
 
-## Other things to consider
+### Namespace conflicts
 
-- Set a seed
+When using multiple packages, it's possible to encounter namespace conflicts, where different packages have functions with the same name. This can lead to unexpected behavior in your code. To avoid this, you can prefix functions with the package name.
+
+:::{.callout-tip}
+
+Example of Avoiding Namespace Conflicts
+In **R**, if both `dplyr` and `plyr` have a function called `summarize`, you can specify which one to use:
+
+```r
+dplyr::summarize(data, mean_value = mean(value))
+```
+In Python, if both pandas and numpy have a function called mean, you can specify which one to use:
+
+```python
+import pandas as pd
+import numpy as np
+
+mean_value = pd.DataFrame.mean(data)
+mean_array = np.mean(array)
+```
+
+In **Julia**, if both DataFrames and Statistics have a function called mean, you can specify which one to use:
+
+```julia
+using DataFrames
+using Statistics
+
+mean_value = Statistics.mean(data)
+```
+
+### Other things to consider
+
+- **Set a Seed**: Explicitly setting a random seed ensures that your results are reproducible. This is important when your code involves random number generation, such as in simulations or machine learning. For this you can use `set.seed()` in R,
+`random.seed()` in Python and `Random.seed!()` in Julia.
+
+[^1] [@herePackage]
