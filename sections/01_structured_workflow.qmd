@@ -32,43 +32,40 @@ see your whole script automatically transforming into a good practice style.
 
 ## Using formatters and Linters
 
+<!-- todo: Do we really need this? Is it interesting for beginners to know that you can have your own style guide file? -->
+
 Depending on your combination of IDE and programming languages this might be different.
-Just search for it online to find the right tools for you.
+Just search for it online to find the right tools for you. 
+Often, you can also include a custom style file in your projects and tell the formatter to
+use the style file. However, this is more advanced.
 
 ##### R and RStudio
 
-In RStudio you can auto-format your entire R script from the command pallette. 
-Open it using the keyboard shortcut (`Ctrl/Cmd + Shift + P`) and search for
-"format" to find all formatting options. With "Reformat Current Document", you can
-auto-format your code to comply with a defined coding style. You can also toggle the 
-"Reformat documents on save" for even more convenience. In these options, you can also
-chose your "Code formatter". By default it applies the tidyverse style guide (option "Styler") which
-is already a very good option.
-If you installed the `lintr` R package, you can also search for "lint" options in the
-command pallette. There you can "Lint current file" or "Lint current package". This
-will list all style problems in your code in the console area and mark them with a blue
-information icon on the left side of your script. You can then go through these 
-points one by one to improve your code.
+- **Auto-format**: Open the command palette (`Ctrl/Cmd + Shift + P`) and search for "format". Use "Reformat Current Document" to auto-format your code. Toggle "Reformat documents on save" for convenience. You can also chose your own "Code formatter" but the default option "Styler", which applies the tidyverse style guide is already a very good option.
+- **Lint**: Install the `lintr` package and search for "lint" options in the command palette. Use "Lint current file" or "Lint current package" to list style problems.
 
 #### Python and VScode
 
 <!-- todo: this still needs to be written -> but maybe it is anyways already too long and too specific? -->
-- VScode also has a command palette that you can open with `Ctrl + Shift + P` on Windows and `XXX` on Mac
-- To format your script automatically, you can search for "Format Document" in the command palette
-- You can also open the VScode settings and look for the "Format on Save" option that you can toggle to trigger automatic formatting
-- In the VScod "Format" settings, you can also select the default formatter to be used
-
-Often, you can also include a custom style file in your projects and tell the formatter to
-use the style file. However, this is more advanced.
+- **Auto-format**: Open the command palette (`Ctrl + Shift + P` on Windows or `Cmd + Shift + P` on Mac) and search for "Format Document". You can also enable "Format on Save" in VS Code settings and
+"Select Formatter" a default formatter (e.g., `black`, `autopep8`) in VS Code settings.
+- **Lint**: Install a linter like `pylint` or `flake8` and configure it in VS Code settings.
 
 :::
   
 #### Have a naming convention
 
-The goal of a naming convention is to have clear and descriptive names 
-that indicate the purpose or content of files, variables, functions, and modules.
-To learn about good practice names for you files, please refer to the section on project structure.
-In your codebase, use concise and descriptive object names. Variable names are usually nouns and function names verbs. Avoid using names of existing variables or functions.
+Use clear and descriptive names for files, variables, functions, and modules. 
+The goal of a good naming conventions is that it is immediately clear to the reader
+what is behind any file or object.
+To learn about good practice names for you files, please refer to the section on project structure. For objects in your codebase you can follow these tips:
+
+- **Concise and Descriptive**: Variable names are usually nouns, and function names are verbs.
+- **Avoid Conflicts**: Don't use names of existing variables or functions.
+- **Use consistent capitalization rules**: Each language community has a preferred naming style (e.g., `snake_case` for Python and R, `lowerCamelCase` for JavaScript). Check your language's style guide.
+- **Develop rules and document them**: You can develop your own conventions where it 
+  is useful. This can include things like when and how to use abbreviations or rules
+  on how you name your functions (e.g. you might want to prefix all your helper functions with `zzz_` to mark them as helper functions). 
 
 :::{.callout-note}
 
@@ -84,54 +81,45 @@ In your codebase, use concise and descriptive object names. Variable names are u
 
 :::
 
-:::{.callout-tip}
-
-## Capitalization rules
-
-Each language community has a preferred naming style. In Python and R this is for example
-`snake_case` while JavaScript uses `lowerCamelCase`.
-Checkout the style-guide of your preferred programming language to find out what the 
-community uses.
-:::
-
 It is good practice to establish and follow a naming convention throughout a project.
-This convention can include rules for capitalization (snake_case vs. camelCase) or abbreviations,
-but also rules on how you name your functions (e.g. you might want to prefix all your helper functions with `zzz_` to mark them as helper functions).
-If you established such a convention once, then you can also apply it to other projects.
+It also helps a lot to document your conventions and naming logic in the readme file
+of your project. This way, it is easier for collaborators to read and understand your 
+code but also to contribute using the same style
 
 ### Comment your code
 
 <!-- todo: In the old guide, there is an explanation of what comments are. I think we don't need to do that right? Everyone using code knows this I guess -->
 
-How often have you revisited an old script six months down the line and not been able to figure out what you had been doing? Or have taken on a script from a collaborator and not been able to understand what their code is doing and why? An easy win for making code more readable and reproducible is the liberal, and effective, use of comments. One good principle to adhere to is to comment the ‘why’ rather than the ‘what’. The code itself tells the reader what is being done, it is far more important to document the reasoning
-behind a particular section of code. 
+<!-- todo: Maybe this section could be much shorter? I copied some of the text from the old booklet which maybe is too verbose? -->
+
+How often have you revisited an old script six months down the line and not been able to figure out what you had been doing? Or have taken on a script from a collaborator and not been able to understand what their code is doing and why? 
+An easy win for making code more readable and reproducible is the liberal, and effective, use of comments. One good principle to adhere to is to comment the ‘why’ rather than the ‘what’. The code itself tells the reader what is being done, it is far more important to document the reasoning behind a particular section of code. 
+
 You can use inline comments for short explanations or block comments that span 
 multiple lines to summarize sections of code or provide detailed explanations.
 
-Don't forget to update your comments as your code evolves to avoid outdated or misleading
-information.
+Don't forget to update your comments as your code evolves to avoid outdated or misleading information.
 
 ### Structure your scripts
 
 In addition to writing legible code, you can structure your scripts in a consistent and
 logical way, so that readers can orient themselves easily in your codebase. How
 a good script structure looks like depends on the type of script but there are some 
-general principles that you can follow. 
+general principles that you can follow.
 
-One major thing to consider is to split your scripts when they start getting too long.
-There is no clear rule on this, but try to make your scripts only do one thing and 
-keep in mind that you can split a script into multiple scripts and then load them
-into your main script (using `source` in R or `import` in Python).
+Here are some things to consider:
 
-Within one script, you can consider a standardized header for your scripts explaining the purpose of 
-the script, the author and other relevant information. Then use the top section
-of your script to load all external libraries and scripts and define global variables
-that are used in the script. If you load data, it is usually good practice to load
-all data in one block at the top as well. Only when you have done all that, you can
-start with the other code that for example modifies the data and produces a figure.
-
-To help guide the reader through your scripts, you can also use section headers 
-that can be navigated through the outline of your script in the IDE.
+- **Split Long Scripts**: Make scripts do just one thing. If needed, you can
+  import multiple scripts that you need for your analysis (e.g. using `source` in R or `import` in Python).
+- **Standardized Header**: Include essential information like the purpose, authors,
+  contact, license, etc.
+- **Initialize at the Top**: Load all libraries, define global variables and read
+  all data in one block at the top instead of throughout the script.
+- **Use Section Headers**: Guide readers through your scripts with section headers.
+  In many IDEs, you can navigate these sections using a script outline.
+- **Creating a script template**: Create a new script from a pre-structured template
+ where you can fill out the relevant information in the header section and the
+ top part of your script. In RStudio, you can also checkout code snippets, that allow you to easily load template code and script sections in your scripts [^2].
 
 :::{.callout-tip}
 
@@ -164,12 +152,5 @@ rainfall_data <- read_csv(rain_data_path)
 
 :::
 
-To avoid, having to retype all of this for every script, consider creating a 
-template that you can apply and then fill out for new scripts that you create.
-
-<!-- todo: Should we mention R Studio snippets here? Seems too IDE-specific -->
-
-
-  
-
 [^1]: E.g. see [@PEP8Style] for Python, [@StyleGuideJulia] for Julia and [@TidyverseStyleGuide] for R.
+[^2] [RStudio Code Snippets](https://support.posit.co/hc/en-us/articles/204463668-Code-Snippets-in-the-RStudio-IDE)
