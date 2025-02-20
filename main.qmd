@@ -6,6 +6,21 @@ title: "BES booklet programming"
 
 - Why good practice programming
 
+- The main goal of all these rules is to make your code standardized/predictable/consistent
+  - This means that other users (and you from the future) don't need to put more effort than
+  needed into understanding the code. They know what to expect and can quickly orient themselves.
+  Therefore they can jump to the interesting part (the actual results/method) quickly
+
+- What you can also be helpful: While coding, imagine how someone else (or your from
+2 years in the future) will see the project for the first time. Will they be able
+to understand and use your project? The goal of writing reproducible code is, that the
+answer to that question is "yes". 
+  - You can also do this in a very practical way by sending you project to a colleague 
+  and ask them to try and understand what's going on and run the code by themselves.
+
+- In collaborative projects, you can also write down the rules for contributing code to your project
+  - This can be very useful when working collaboratively
+
 ## Structured workflow/readable code
 
 {{< include sections/01_structured_workflow.qmd >}}
