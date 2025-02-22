@@ -1,17 +1,38 @@
-Often when you are analysing data, you need to repeat the same task many times. For example, you might have several files that all need loading and cleaning in the same way, or you might need to perform the same analysis for multiple species or parameters. The first instinct when faced with such a task would be to copy and paste previous blocks of code to repeat these tasks. This, however, is likely to introduce errors into your code, and therefore limit reproducibility. You can use functions to repeat tasks in a more standardised way. Using functions allows you to break your code down into modules, and therefore has the added advantage that it helps to provide better structure to scripts. A function is a self-contained block of code that performs a single action. A function takes in a set of arguments, applies the action, and returns an object of any data type. A function should not rely on data from outside of the function, and should not manipulate data outside of the function.
+One of the core principles in software development is DRY (*Don't Repeat Yourself*). Whereby the aim is to reduce any repetitive patterns or duplicates in your code in favour of creating modular and referenceable code. Although you might be inclined to think that DRY principles are things that software developers should be taking into consideration it is still beneficial even for a simple data analysis task. Even when analysing data we are sometimes doing repetitive tasks *e.g.,* running the same analysis for different datasets. Although it may seem simpler to just copy and paste the same code over again it means that every time you need change something (or fix an error) within that workflow you need to change it in every place that that workflow code has been copied to. Functions represent a simple way to break your code into modules and repeat tasks in a standardised (and documented) manner. A function is a self-contained block of code that performs a *single action*. Although different programming languages will have different ways of writing a function they all have the same gross anatomy: input -> operation -> output. In addition to allowing you to keep your workflow DRY functions have the added benefit that because they are designed to execute a specific task we are able to make sure that it is performing that specific task and ensure the correctness of our data analysis. See the section on [testing](sections/03_testing_code.qmd) for more information.
 
-### Why write functions? (the anatomy of a function)
+### Writing your first function (do's and don'ts)
 
-> The key to writing functions is to perform a single action per function
+#### Documentation
 
-small jobs (functions); avoid copy-pasting
+When documenting your code never assume that the reader knows the basics of what is going on, strive to explain things to the layman. At the highest level the on needs to document how a function works, what it does, and how to use it. However, it is useful to think about creating two 'levels' of documentation. Firstly documentation that allows developers/collaborators to understand what the code does (this you can do with comments inside the function) as well as creating documentation for those who will use the function and need to know *how* to use it (this should be done using a docstring) Additionally it may also be useful to provide higher level documentation as to how the different parts (functions) integrate and work together. 
 
-### Writing your furst function (do's and don'ts)
+#### Keeping things modular
 
-document your functions; input -> operation -> output; specific names
+When you have different and discrete workflows it is easy to decide how to turn them into functions (*e.g.,* one function to transform data and one to analyse) but there may be instances when you have three different analyses that share maybe 90% of the same code. What does one do then? It still makes sense to write one function that represent the shared code keep the 10% external to the function. 
+
+#### Be consistent
+
+As discussed in the [previous section](sections/01_structured_workflow.qmd) consistency is key to making your work easier for others to understand and follow. In terms of introducing functions into your workflow make sure that you are consistent with how you name and describe them. If you use term `init` in one function, you should use it everywhere; do not use `initialise` or `int` elsewhere. Because functions preform an action on an object an informative name will have some combination of `verb` + `object` select the order and remain consistent. Finally also remain consistent with which case you use; snake_case is usually best,
+
+::: {.callout-tip collapse="true"}
+## Example
+
+Lets say I have two functions one initialise an object as a number and the other a character. Bad practice would be to name them as follows:
+
+-   `int_char()`
+-   `numInit()`
+
+Instead opt for consistency in both how we choose to represent the 'initialise' action as well as the verb-object order:
+
+-   `init_num()`
+-   `init_char()`
+
+Note that there is no right and wrong in terms of the words, order, or case that we use, just make sure that it is consistent and that it is clearly documented.
+
+:::
 
 ### Defensive programming: anticipating errors and writing robust code
 
-Defensive programming is a technique to ensure that code fails with well-defined errors, i.e. where you know it shouldn’t work. The key here is to ‘fail fast’ and ensure that the code throws an error as soon as something unexpected happens. This creates a little more work for the programmer, but makes debugging code a lot easier at a later date. By applying defensive programming and adding in these checks to the code, you can find unexpected behaviour sooner and with more meaningful error messages.
+Defensive programming is a technique to ensure that code fails with well-defined errors, i.e. where you know it shouldn't work. The key here is to ‘fail fast’ and ensure that the code throws an error as soon as something unexpected happens. This creates a little more work for the programmer, but makes debugging code a lot easier at a later date. By applying defensive programming and adding in these checks to the code, you can find unexpected behaviour sooner and with more meaningful error messages.
 
 ### debugging and logging -> Detect mistakes early on
