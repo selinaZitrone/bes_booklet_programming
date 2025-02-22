@@ -33,6 +33,15 @@ Note that there is no right and wrong in terms of the words, order, or case that
 
 ### Defensive programming: anticipating errors and writing robust code
 
-Defensive programming is a technique to ensure that code fails with well-defined errors, i.e. where you know it shouldn't work. The key here is to ‘fail fast’ and ensure that the code throws an error as soon as something unexpected happens. This creates a little more work for the programmer, but makes debugging code a lot easier at a later date. By applying defensive programming and adding in these checks to the code, you can find unexpected behaviour sooner and with more meaningful error messages.
+Defensive programming is a technique to ensure that code fails with well-defined errors, and rests on the idea that we expect our code to fail. By applying a defensive programming philosophy (and adding checks into the code), you can find unexpected behaviour sooner, and with more meaningful error messages. Although this means a bit more work at the start it will make debugging the code a lot easier at a later date. Although there are many ways to pre-empt a good place to start is 1) to write checks for cases that we know need to be met *e.g.,* ensuring that the types of the input are correct (is the input actually a number and not a character?) as well as testing the boundaries of our data (for example asserting that two dataframes are the same dimension) and 2) writing well defined error messages should those checks fail *e.g.,* if we test the dimensions of our input vs output dataframes and they do not match we have an error message telling us so.
 
-### debugging and logging -> Detect mistakes early on
+::: {.callout-tip collapse="true"}
+## Writing checks and good error messages
+
+Knowing that a check fails is already a good starting point (because we know that something is not behaving as it should), but writing the error message that explains *how* the check is failing is even better. If the error message has additional information it will probably already give us an idea as to what is happening that s resulting in the unexpected behaviour. 
+
+For example lets say we have a function that is doing some row-wise calculations on a dataframe and giving us the output we expect that the number of rows for the input and output dataframes to be the same. The logical check would be to see if `nrow(input_df) == nrow(output_df)`, and then throwing an error if this clause is not met. Although having an error message of "input data is not the same length as output data" is already informative it is useful to add some additional info such as to exactly how different the number of rows are between the different data frames *i.e.,* "input data is not the same length as output data, input = 10 rows and output = 5 rows". This is useful because we now know that somewhere in the pipeline we are losing rows.
+
+:::
+
+### Debugging and logging -> Detect mistakes early on
