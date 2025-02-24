@@ -44,4 +44,6 @@ For example lets say we have a function that is doing some row-wise calculations
 
 :::
 
-### Debugging and logging -> Detect mistakes early on
+### Debugging and logging
+
+Debugging is the process of finding and resolving errors in our code. Code that has well thought out checks and error messages should be easy to debug as the problem is already identified and isolated. Creating logs is a comprehensive way to document the behaviour of the *entire* workflow. Logs are usually created by an automated workflow that runs through everything and records events or messages (that you have specified) as it goes and allows your to diagnose and troubleshoot issues. In addition to identifying errors/bugs log messages can also give information on the state of the workflow *e.g.,* job $x$ is complete and outputs are saved at `PATH`. Unless you are developing extremely complex workflows or packages it might make sense to only log errors (cases where the code has failed either to run or pass a test) to aid in the debugging process.
