@@ -33,6 +33,11 @@ helps with code development, e.g. RStudio) and programming language. Just search
 - **Auto-format**: Open the command palette (`Ctrl/Cmd + Shift + P`) and search for "Format Document". You can also enable "Format on Save" in VS Code settings and select a default formatter in the VS Code settings.
 - **Lint**: Install a linter like `pylint` or `flake8` and configure it in VS Code settings.
 
+#### Julia and VScode
+
+- **Auto-format**: Open the command palette (Ctrl/Cmd + Shift + P) and search for "Format Document". You can also enable "Format on Save" in VS Code settings and select a default formatter in the VS Code settings. `JuliaFormatter is packaged within the Julia extension and has 'sane' defaults but a user can also specify their own style configurations.
+- **Lint**: The Julia extension is by default statically linted, you can modify this behavior in your workplace settings
+
 :::
   
 ### Have a naming convention
