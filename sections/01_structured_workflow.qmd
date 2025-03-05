@@ -95,7 +95,7 @@ logical way, so that readers can orient themselves easily in your codebase.
 Here are some things to consider:
 
 - **Split long scripts**: Make scripts do just one thing. If needed, you can
-  import multiple scripts that you need for your analysis (e.g. using `source` in R or `import` in Python).
+  import multiple scripts that you need for your analysis (e.g. using `source` in R, `import` in Python, `include` in Julia).
 - **Use a standardized header**: Include essential information like the purpose, authors,
   contact, license, etc. of the script
 - **Initialize at the top**: Load all libraries, define global variables and paths and read
