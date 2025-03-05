@@ -19,7 +19,8 @@ see your whole script automatically transforming into a good practice style.
 
 ## Using formatters and Linters
 
-The details of this depend on your combination of IDE and programming language. Just search for the right formatters and linters for your setup. 
+The details of this depend on your combination of IDE (the software application that 
+helps with code development, e.g. RStudio) and programming language. Just search for the right formatters and linters for your setup. 
 
 ##### R and RStudio
 
