@@ -1,21 +1,8 @@
-### General principles
-
-You don't have to reinvent the wheel to write reproducible, legible, and maintainable code. There are many general and language-specific guidelines and
-tips that you can follow and we list the most essential ones below.
-
-Before we dive into the specifics we have two tips for you:
-
-- **Plan ahead**: Familiarize yourself with good practice rules for your language and start implementing them from the beginning. It's easier than cleaning and restructuring the entire project later.
-- **Prioritize progress over perfection**: If you are just at the start of your 
-journey to good coding practice, don't feel overwhelmed by all the rules and 
-conventions. You don't need a perfect workflow and codebase from the beginning.
-Start with one guideline and build from there. Writing reproducible and legible code will become a habit over time and you will notice that this does not make coding more burdonsome but actually faster and more fun and rewarding.
-
-### Have a consistent coding style
+## Have a consistent coding style
 
 Consistency improves readability and maintainability. It helps others to quickly understand your project's logic and workflows. 
 
-#### Follow a style guide
+### Follow a style guide
 
 Every programming language has a style guide for things like
 indentation, spacing and naming conventions for variables and functions. Check the style guide for the languages you use to get an overview [^1].
@@ -47,7 +34,7 @@ The details of this depend on your combination of IDE and programming language. 
 
 :::
   
-#### Have a naming convention
+### Have a naming convention
 
 Use clear and descriptive names for files, variables, functions, and modules. 
 The goal of a good naming conventions is that it is immediately clear to the reader
@@ -80,7 +67,7 @@ It also helps to document your conventions and naming logic in the readme file
 of your project. This way, it is easy for collaborators to read and understand your 
 code but also to contribute using the same style.
 
-### Comment your code
+## Comment your code
 
 <!-- todo: In the old guide, there is an explanation of what comments are. I think we don't need to do that right? Everyone using code knows this I guess -->
 
@@ -94,7 +81,7 @@ multiple lines to summarize sections of code or provide detailed explanations.
 
 Don't forget to update your comments as your code evolves to avoid outdated or misleading information.
 
-### Structure your scripts
+## Structure your scripts
 
 In addition to writing legible code, you should structure your scripts in a consistent and
 logical way, so that readers can orient themselves easily in your codebase.

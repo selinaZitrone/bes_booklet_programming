@@ -4,22 +4,30 @@ title: "BES booklet programming"
 
 ## Introduction
 
-- Why good practice programming
 
-- The main goal of all these rules is to make your code standardized/predictable/consistent
-  - This means that other users (and you from the future) don't need to put more effort than
-  needed into understanding the code. They know what to expect and can quickly orient themselves.
-  Therefore they can jump to the interesting part (the actual results/method) quickly
+The main goal of adopting good programming practices is to make your code consistent, readable, and maintainable. This benefits you by making your work easier and more enjoyable in the long run, and it also ensures that your science is reproducible. Additionally, good programming practices are crucial in collaborative projects, allowing you to work efficiently and seamlessly with others. 
 
-- What you can also be helpful: While coding, imagine how someone else (or your from
-2 years in the future) will see the project for the first time. Will they be able
-to understand and use your project? The goal of writing reproducible code is, that the
-answer to that question is "yes". 
-  - You can also do this in a very practical way by sending you project to a colleague 
-  and ask them to try and understand what's going on and run the code by themselves.
+:::{.callout-tip}
 
-- In collaborative projects, you can also write down the rules for contributing code to your project
-  - This can be very useful when working collaboratively
+## The mindset of good practice coding
+
+While coding, imagine how someone else (or you from two years in the future) will see the project for the first time. Will they be able to understand and use your project? The goal of writing reproducible code is to ensure that the answer to this question is "yes." You can also practically test this by sending your project to a colleague and asking them to try to understand and run the code by themselves.
+
+:::
+
+You don't have to reinvent the wheel to write reproducible, legible, and maintainable code. There are many general and language-specific guidelines and
+tips that you can follow and we list the most essential ones below.
+
+Before we dive into the specifics we have two tips for you:
+
+- **Plan ahead**: Familiarize yourself with good practice rules for your language and start implementing them from the beginning. It's easier than cleaning and restructuring the entire project later.
+- **Prioritize progress over perfection**: If you are just at the start of your 
+journey to good coding practice, don't feel overwhelmed by all the rules and 
+conventions. You don't need a perfect workflow and codebase from the beginning.
+Start with one guideline and build from there. Writing reproducible and legible code will become a habit over time and you will notice that this does not make coding more burdonsome but actually faster and more fun and rewarding.
+- **Communicate your rules**: Especially in collaborative projects, it is helpful to write down the rules for contributing code to your project. This can also be helpful in 
+your individual project as it helps others to understand your coding logic more
+easily.
 
 ## Structured workflow/readable code
 
