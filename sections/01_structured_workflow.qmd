@@ -47,7 +47,7 @@ The goal of a good naming conventions is that it is immediately clear to the rea
 what is behind any file or object.
 To learn about good practice names for your files, please refer to the section on project structure. For objects in your codebase you can follow these tips:
 
-- **Concise and Descriptive**: Variable names are usually nouns, and function names are verbs.
+- **Concise and Descriptive**: Variable names are usually nouns, and function names are verbs (see also in the [next section](sections/02_modular_functional_code.qmd)).
 - **Avoid Conflicts**: Don't use names of existing variables or functions, unless you are intentionally extending or overriding them (e.g. when developing an R package or a new method in Julia).
 - **Use consistent capitalization rules**: Each language community has a preferred naming style (e.g., `snake_case` for Python and R, `lowerCamelCase` for JavaScript). Check your language's style guide [^1].
 - **Develop rules and document them**: You can develop your own conventions where it 
