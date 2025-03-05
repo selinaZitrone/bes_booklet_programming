@@ -48,7 +48,7 @@ what is behind any file or object.
 To learn about good practice names for your files, please refer to the section on project structure. For objects in your codebase you can follow these tips:
 
 - **Concise and Descriptive**: Variable names are usually nouns, and function names are verbs.
-- **Avoid Conflicts**: Don't use names of existing variables or functions.
+- **Avoid Conflicts**: Don't use names of existing variables or functions, unless you are intentionally extending or overriding them (e.g. when developing an R package or a new method in Julia).
 - **Use consistent capitalization rules**: Each language community has a preferred naming style (e.g., `snake_case` for Python and R, `lowerCamelCase` for JavaScript). Check your language's style guide [^1].
 - **Develop rules and document them**: You can develop your own conventions where it 
   is useful. This can include things like when and how to use abbreviations or rules
