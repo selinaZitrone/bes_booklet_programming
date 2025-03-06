@@ -29,23 +29,3 @@ Instead opt for consistency in both how we choose to represent the 'initialise' 
 
 Note that there is no right and wrong in terms of the words, order, or case that we use, just make sure that it is consistent and that it is clearly documented.
 :::
-
-### Defensive programming
-
-Defensive programming is all about anticipating errors and writing robust code. The aim is to ensure that your code fails with well-defined errors, and rests on the idea that we expect our code to fail. By applying a defensive programming philosophy (and adding checks into the code), you can find unexpected behaviour sooner. Although this means a bit more work at the start it will make debugging the code a lot easier at a later date. Although there are many ways to pre-empt a good place to start is:
-
-1.  To write checks for conditions that we know need to be met *e.g.,* ensuring that the types of the input data are correct (is the input actually a number and not a character?) as well as testing the boundaries of our data (for example asserting that two dataframes are the same dimensions)
-
-2.  Writing well defined error messages should those checks fail *e.g.,* if we test the dimensions of our input vs output dataframes and they do not match we have an error message telling us so.
-
-::: {.callout-tip collapse="true"}
-## Writing checks and good error messages
-
-Knowing that a check fails is already a good starting point (because we know that something is not behaving as it should), but writing the error message that explains *how* the check is failing is even better. If the error message has additional information it will probably already give us an idea as to what is happening that is resulting in the unexpected behaviour.
-
-For example lets say we have a function that is doing some row-wise calculations on a dataframe and giving us and output. Here we expect that the number of rows for the input and output dataframes should be the same. The logical check would be to see if `nrow(input_df) == nrow(output_df)`, and then throwing an error if this clause is not met. Although having an error message of "input data is not the same length as output data" is already informative it is useful to add some additional info such as to exactly how different the number of rows are between the different data frames *i.e.,* "input data is not the same length as output data, input = 10 rows and output = 5 rows". This is useful because we now know that somewhere in the pipeline we are losing rows.
-:::
-
-### Debugging and logging
-
-Debugging is the process of finding and resolving errors in our code. Code that has well thought out checks and error messages should be easy to debug as the problem is already identified and isolated. Creating logs is a comprehensive way to document the behaviour of the *entire* workflow. Logs are usually created by an automated workflow that runs through everything and records events or messages (that you have specified) as it goes and allows your to diagnose and troubleshoot issues. In addition to identifying errors/bugs log messages can also give information on the state of the workflow *e.g.,* job $x$ is complete and outputs are saved at `PATH`. Unless you are developing extremely complex workflows or packages it might make sense to only log errors (cases where the code has failed either to run or pass a test) to aid in the debugging process.
