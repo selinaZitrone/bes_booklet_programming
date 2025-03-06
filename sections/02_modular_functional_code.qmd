@@ -1,14 +1,14 @@
-One of the core principles in software development is DRY (*Don't Repeat Yourself*). Whereby the aim is to reduce any repetitive patterns or duplicates in your code in favour of creating modular and referenceable code. Although you might be inclined to think that DRY principles are things that software developers should be taking into consideration it is still beneficial even for a simple data analysis task. Even when analysing data we are sometimes doing repetitive tasks *e.g.,* running the same analysis for different datasets. Although it may seem simpler to just copy and paste the same code over again, it means that every time you need to change something (or fix an error) you need to change it in every place the code has been copied to. Functions are a simple way to avoid this as they allow you to break your code into modules, which allows you to repeat the same task in a standardised (and documented) manner. A function is a self-contained block of code that performs a *single action*. Although different programming languages will have different ways of writing a function they all have the same anatomy: input -> operation -> output. In addition to allowing you to keep your workflow DRY, functions have the added benefit that because they are designed to execute a specific task we are able to make sure that it is performing that specific task and ensure the correctness of our data analysis. See the section on [testing](sections/03_testing_code.qmd) for more information.
+One of the core principles in software development is DRY (*Don't Repeat Yourself*). Whereby the aim is to reduce any repetitive patterns or duplicates in your code in favour of creating modular and referenceable code. Although you might be inclined to think that DRY principles are things that software developers should be taking into consideration it is still beneficial even for a simple data analysis task. Even when analysing data we are sometimes doing repetitive tasks *e.g.,* running the same analysis for different datasets. Although it may seem simpler to just copy and paste the same code over again, it means that every time you need to change something (or fix an error) you need to change it in every place the code has been copied to. Functions are a simple way to avoid this as they allow you to break your code into modules, which allows you to repeat the same task in a standardised (and documented) manner. A function is a self-contained block of code that performs a *single action*. Although different programming languages will have different ways of writing a function they all have the same anatomy: input -\> operation -\> output. In addition to allowing you to keep your workflow DRY, functions have the added benefit that because they are designed to execute a specific task we are able to make sure that it is performing that specific task and ensure the correctness of our data analysis. See the section on [testing](sections/03_testing_code.qmd) for more information.
 
 ### Writing your first function (do's and don'ts)
 
 #### Documentation
 
-When documenting your code never assume that the reader knows the basics of what is going on, strive to explain things to the layman. At the highest level the on needs to document how a function works, what it does, and how to use it. However, it is useful to think about creating two 'levels' of documentation. Firstly documentation that allows developers/collaborators to understand what the code does (this you can do with comments inside the function) as well as creating documentation for those who will use the function and need to know *how* to use it (this should be done using a docstring) Additionally it may also be useful to provide higher level documentation as to how the different parts (functions) integrate and work together (something that can be done using a README for example). 
+When documenting your code never assume that the reader knows the basics of what is going on, strive to explain things to the layman. At the highest level the on needs to document how a function works, what it does, and how to use it. However, it is useful to think about creating two 'levels' of documentation. Firstly documentation that allows developers/collaborators to understand what the code does (this you can do with comments inside the function) as well as creating documentation for those who will use the function and need to know *how* to use it (this should be done using a docstring) Additionally it may also be useful to provide higher level documentation as to how the different parts (functions) integrate and work together (something that can be done using a README for example).
 
 #### Keeping things modular
 
-The key to writing effective functions is to keep it simple. A function should perform a single action, not rely on objects from outside the function, and not change objects outside the function. So if a function gets to big (does too many jobs) split it. This is useful to keep in mind in instances when you have similar analyses that share 90% of the same code. Here it makes sense to write a function that does the 90% and keep the 10% difference external to the function. 
+The key to writing effective functions is to keep it simple. A function should perform a single action, not rely on objects from outside the function, and not change objects outside the function. So if a function gets to big (does too many jobs) split it. This is useful to keep in mind in instances when you have similar analyses that share 90% of the same code. Here it makes sense to write a function that does the 90% and keep the 10% difference external to the function.
 
 #### Have a consistent naming convention
 
@@ -28,24 +28,22 @@ Instead opt for consistency in both how we choose to represent the 'initialise' 
 -   `init_char()`
 
 Note that there is no right and wrong in terms of the words, order, or case that we use, just make sure that it is consistent and that it is clearly documented.
-
 :::
 
 ### Defensive programming
 
 Defensive programming is all about anticipating errors and writing robust code. The aim is to ensure that your code fails with well-defined errors, and rests on the idea that we expect our code to fail. By applying a defensive programming philosophy (and adding checks into the code), you can find unexpected behaviour sooner. Although this means a bit more work at the start it will make debugging the code a lot easier at a later date. Although there are many ways to pre-empt a good place to start is:
 
-1   To write checks for conditions that we know need to be met *e.g.,* ensuring that the types of the input data are correct (is the input actually a number and not a character?) as well as testing the boundaries of our data (for example asserting that two dataframes are the same dimensions)
+1.  To write checks for conditions that we know need to be met *e.g.,* ensuring that the types of the input data are correct (is the input actually a number and not a character?) as well as testing the boundaries of our data (for example asserting that two dataframes are the same dimensions)
 
-2    Writing well defined error messages should those checks fail *e.g.,* if we test the dimensions of our input vs output dataframes and they do not match we have an error message telling us so.
+2.  Writing well defined error messages should those checks fail *e.g.,* if we test the dimensions of our input vs output dataframes and they do not match we have an error message telling us so.
 
 ::: {.callout-tip collapse="true"}
 ## Writing checks and good error messages
 
-Knowing that a check fails is already a good starting point (because we know that something is not behaving as it should), but writing the error message that explains *how* the check is failing is even better. If the error message has additional information it will probably already give us an idea as to what is happening that is resulting in the unexpected behaviour. 
+Knowing that a check fails is already a good starting point (because we know that something is not behaving as it should), but writing the error message that explains *how* the check is failing is even better. If the error message has additional information it will probably already give us an idea as to what is happening that is resulting in the unexpected behaviour.
 
 For example lets say we have a function that is doing some row-wise calculations on a dataframe and giving us and output. Here we expect that the number of rows for the input and output dataframes should be the same. The logical check would be to see if `nrow(input_df) == nrow(output_df)`, and then throwing an error if this clause is not met. Although having an error message of "input data is not the same length as output data" is already informative it is useful to add some additional info such as to exactly how different the number of rows are between the different data frames *i.e.,* "input data is not the same length as output data, input = 10 rows and output = 5 rows". This is useful because we now know that somewhere in the pipeline we are losing rows.
-
 :::
 
 ### Debugging and logging
