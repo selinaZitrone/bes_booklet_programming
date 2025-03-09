@@ -1,7 +1,7 @@
 The main goal of sharable code is that others can run it and obtain
-the same results as you did. However, others people have different machines with 
-different operating systems and versions of the necessary software but also different folder 
-structures and paths. Therefore, to ensure reproducibility, you need to provide more than the code and the data. Document the exact versions of all packages, libraries, software, and potentially your operating system and hardware.
+the same results as you did. However, other people have different machines with 
+different operating systems and versions of the necessary software, but also different folder 
+structures and paths. Therefore, to ensure reproducibility, you need to provide more than just the code and the data. Document the exact versions of all packages, libraries, software, and potentially your operating system and hardware.
 
 Below are some basic tips to ensure others can run your code and obtain the same results.
 
@@ -15,7 +15,7 @@ If you are unsure whether your project is reproducible, send it to a colleague o
 
 ### Write portable code
 
-One major way to improve portability of your code is to avoid absolute paths and use relative paths instead, ensuring that the script is run from the project root folder (see project organization section).
+One major way to improve the portability of your code is to avoid absolute paths and use relative paths instead, ensuring that the script is run from the project root folder (see project organisation section).
 
 ```r
 # Absolute path: Exists only on your machine
@@ -25,8 +25,8 @@ absolute_path <- "C:/Users/my_name/project_folder/data/species_dat.csv"
 relative_path <- "data/species_dat.csv"
 ```
 
-You can immediately see the problem with absolute paths: they only exists on this
-one machine while relative paths exist within the project no matter how the machine's folders are organized.
+You can immediately see the problem with absolute paths: they only exist on this
+one machine, while relative paths exist within the project no matter how the machine's folders are organized.
 
 :::{.callout-tip}
 
@@ -45,15 +45,15 @@ project_path <- here::here("data", "species_dat.csv")
 
 Documenting and managing dependencies is essential for reproducibility because 
 the software that we use changes over time.
-If you e.g. wrote your code with a recent version of an R package and give it to someone who has not upgraded recently, they may not be able to run your code or they might get different results.
+If you, for example, wrote your code with a recent version of an R package and give it to someone who has not upgraded recently, they may not be able to run your code, or they might get different results.
 
-Dependency management can be done in a lot of ways, some are basic (but still
+Dependency management can be done in a lot of ways; some are basic (but still
 useful!) while others are more complex.
-In the following you find three levels of complexity to document the dependencies for your projects.
+In the following, you will find three levels of complexity to document the dependencies for your projects.
 
 #### 1. Show packages that you used
 
-The simplest (but a useful and important) approach is to document all your 
+The simplest (but useful and important) approach is to document all your 
 dependencies in a file that you add to your project.
 
 :::{.callout-tip}
@@ -61,9 +61,9 @@ dependencies in a file that you add to your project.
 ## Find dependencies of your project
 
 - **R**: use `devtools::session_info()` to get a nicely printed table of all
-dependencies. Add this information in your project (e.g. in a readme file).
-- **Python**: you can use `pip freeze` to list all installed packages and their versions. Save this information to a `requirements.txt` file
-- **Julia**: you can use `Pkg.status()` to list all installed packages and their versions. Save this information to a `Project.toml` file:
+dependencies. Add this information to your project (e.g. in a readme file).
+- **Python**: you can use `pip freeze` to list all installed packages and their versions. Save this information to a `requirements.txt` file.
+- **Julia**: you can use `Pkg.status()` to list all installed packages and their versions. Save this information to a `Project.toml` file.
 
 :::
 
@@ -71,7 +71,7 @@ dependencies. Add this information in your project (e.g. in a readme file).
 
 Create a local library with the packages used in the project.
 This way, users don't have to use their globally installed software that might
-have a different version, but they can use the local project library.
+have a different version; they can use the local project library.
 
 Using a package manager helps ensure that the correct versions of packages are installed.
 
@@ -79,7 +79,7 @@ Using a package manager helps ensure that the correct versions of packages are i
 
 ## Create project local libraries
 
-In **R**, you can use the `renv` package [^2] to manage dependencies. Initialize `renv` in your project:
+In **R**, you can use the `renv` package [^2] to manage dependencies. Initialise `renv` in your project:
 
 ```r
 install.packages("renv")
@@ -106,13 +106,13 @@ Pkg.instantiate()
 #### 3: Use a container
 
 A more advanced approach is to use containers, such as Docker, to encapsulate your entire environment. This ensures that your code runs in the exact same environment, regardless of the host system.
-It is more technical to set up but it allows you to distribute the exact same environment as the one you used. If you want others to be able to reproduce your results, and your analysis depends on software that can be difficult to install, it is an option that might be worth exploring.
+It is more technical to set up, but it allows you to distribute the exact same environment as the one you used. If you want others to be able to reproduce your results, and your analysis depends on software that can be difficult to install, it is an option that might be worth exploring.
 
 If you are using R, you can have a look at the `rocker` project [^3] that helps you provide docker containers for R environments ([@nust2020, @boettiger2017].)
 
 ### Namespace conflicts
 
-When using multiple packages, namespace conflicts can occur, where different packages have functions with the same name. This can lead to unexpected behavior in your code. Therefore, it is good practice to prefix functions with the package name to avoid this and make the dependency explicit.
+When using multiple packages, namespace conflicts can occur, where different packages have functions with the same name. This can lead to unexpected behaviour in your code. Therefore, it is good practice to prefix functions with the package name to avoid this and make the dependency explicit.
 
 
 :::{.callout-tip}
@@ -147,7 +147,7 @@ mean_value = Statistics.mean(data)
 
 ### Other Considerations
 
-- **Set a Seed**: Explicitly setting a random seed ensures reproducibility. This is important when your code involves random number generation. For this you can use `set.seed(123)` in R, `random.seed(123)` in Python and `Random.seed!(123)` in Julia.
+- **Set a Seed**: Explicitly setting a random seed ensures reproducibility. This is important when your code involves random number generation. For this, you can use `set.seed(123)` in R, `random.seed(123)` in Python, and `Random.seed!(123)` in Julia.
 
 
 [^1]: [@herePackage]

@@ -5,29 +5,29 @@ Consistency improves readability and maintainability. It helps others to quickly
 ### Follow a style guide
 
 Every programming language has a style guide for things like
-indentation, spacing and naming conventions for variables and functions. Check the style guide for the languages you use to get an overview [^1].
+indentation, spacing, and naming conventions for variables and functions. Check the style guide for the languages you use to get an overview [^1].
 
-The cool thing is, that there are tools to help you enforce a consistent style across a codebase:
+The cool thing is that there are tools to help you enforce a consistent style across a codebase:
 
 - **Formatters**: Can auto-format your script to eliminate inconsistencies.
-- **Linters**: Can analyze your code and list areas for improvement.
+- **Linters**: Can analyse your code and list areas for improvement.
 
-Using such tools is an easy win to improve your code base and it is very satisfying to
+Using such tools is an easy win to improve your codebase, and it is very satisfying to
 see your whole script automatically transforming into a good practice style.
 
 ::: {.callout-tip}
 
-## Using formatters and Linters
+## Using formatters and linters
 
 The details of this depend on your combination of IDE (the software application that 
 helps with code development, e.g. RStudio) and programming language. Just search for the right formatters and linters for your setup. 
 
 ##### R and RStudio
 
-- **Auto-format**: Open the command palette (`Ctrl/Cmd + Shift + P`) and search for "format". Use "Reformat Current Document" to auto-format your code. Toggle "Reformat documents on save" for convenience. You can also chose your own "Code formatter" but the default option "Styler", which applies the tidyverse style guide is already a very good option.
+- **Auto-format**: Open the command palette (`Ctrl/Cmd + Shift + P`) and search for "format". Use "Reformat Current Document" to auto-format your code. Toggle "Reformat documents on save" for convenience. You can also choose your own "Code formatter", but the default option "Styler", which applies the tidyverse style guide, is already a very good option.
 - **Lint**: Install the `lintr` package and search for "lint" options in the command palette. Use "Lint current file" or "Lint current package" to list style problems.
 
-#### Python and VScode
+#### Python and VS Code
 
 <!-- todo: this still needs to be written -> but maybe it is anyways already too long and too specific? -->
 - **Auto-format**: Open the command palette (`Ctrl/Cmd + Shift + P`) and search for "Format Document". You can also enable "Format on Save" in VS Code settings and select a default formatter in the VS Code settings.
@@ -35,21 +35,21 @@ helps with code development, e.g. RStudio) and programming language. Just search
 
 #### Julia and VScode
 
-- **Auto-format**: Open the command palette (Ctrl/Cmd + Shift + P) and search for "Format Document". You can also enable "Format on Save" in VS Code settings and select a default formatter in the VS Code settings. `JuliaFormatter is packaged within the Julia extension and has 'sane' defaults but a user can also specify their own style configurations.
-- **Lint**: The Julia extension is by default statically linted, you can modify this behavior in your workplace settings
+- **Auto-format**: Open the command palette (Ctrl/Cmd + Shift + P) and search for "Format Document". You can also enable "Format on Save" in VS Code settings and select a default formatter in the VS Code settings. `JuliaFormatter is packaged within the Julia extension and has 'sane' defaults, but a user can also specify their own style configurations.
+- **Lint**: The Julia extension is by default statically linted; you can modify this behavior in your workplace settings.
 
 :::
   
 ### Have a naming convention
 
 Use clear and descriptive names for files, variables, functions, and modules. 
-The goal of a good naming conventions is that it is immediately clear to the reader
+The goal of a good naming convention is that it is immediately clear to the reader
 what is behind any file or object.
-To learn about good practice names for your files, please refer to the section on project structure. For objects in your codebase you can follow these tips:
+To learn about good practice names for your files, please refer to the section on project structure. For objects in your codebase, you can follow these tips:
 
 - **Concise and Descriptive**: Variable names are usually nouns, and function names are verbs (see also in the [next section](sections/02_modular_functional_code.qmd)).
-- **Avoid Conflicts**: Don't use names of existing variables or functions, unless you are intentionally extending or overriding them (e.g. when developing an R package or a new method in Julia).
-- **Use consistent capitalization rules**: Each language community has a preferred naming style (e.g., `snake_case` for Python and R, `lowerCamelCase` for JavaScript). Check your language's style guide [^1].
+- **Avoid Conflicts**: Don't use names of existing variables or functions unless you are intentionally extending or overriding them (e.g. when developing an R package or a new method in Julia).
+- **Use consistent capitalisation rules**: Each language community has a preferred naming style (e.g., `snake_case` for Python and R, `lowerCamelCase` for JavaScript). Check your language's style guide [^1].
 - **Develop rules and document them**: You can develop your own conventions where it 
   is useful. This can include things like when and how to use abbreviations or rules
   on how you name your functions (e.g. you might want to prefix all your helper functions with `zzz_` to mark them as helper functions). 
@@ -62,7 +62,7 @@ To learn about good practice names for your files, please refer to the section o
 
 `temp`, `data1`, `data_function`, `my_function`
 
-**Good** names are human readable and tell the user what is behind the objects.
+**Good** names are human-readable and tell the user what is behind the objects.
 
 `temperature_readings`, `user_data`, `read_data`, `run_binomial_model`
 
@@ -80,30 +80,30 @@ code but also to contribute using the same style.
 <!-- todo: Maybe this section could be much shorter? I copied some of the text from the old booklet which maybe is too verbose? -->
 
 How often have you revisited an old script six months down the line and not been able to figure out what you had been doing? Or have taken on a script from a collaborator and not been able to understand what their code is doing and why? 
-An easy win for making code more readable and reproducible is the liberal, and effective, use of comments. One good principle to adhere to is to comment the ‘why’ rather than the ‘what’. The code itself tells the reader what is being done, it is far more important to document the reasoning behind a particular section of code. 
+An easy win for making code more readable and reproducible is the liberal and effective use of comments. One good principle to adhere to is to comment the ‘why’ rather than the ‘what’. The code itself tells the reader what is being done; it is far more important to document the reasoning behind a particular section of code. 
 
 You can use inline comments for short explanations or block comments that span 
-multiple lines to summarize sections of code or provide detailed explanations.
+multiple lines to summarise sections of code or provide detailed explanations.
 
 Don't forget to update your comments as your code evolves to avoid outdated or misleading information.
 
 ## Structure your scripts
 
 In addition to writing legible code, you should structure your scripts in a consistent and
-logical way, so that readers can orient themselves easily in your codebase.
+logical way so that readers can orient themselves easily in your codebase.
 
 Here are some things to consider:
 
 - **Split long scripts**: Make scripts do just one thing. If needed, you can
   import multiple scripts that you need for your analysis (e.g. using `source` in R, `import` in Python, `include` in Julia).
-- **Use a standardized header**: Include essential information like the purpose, authors,
-  contact, license, etc. of the script
-- **Initialize at the top**: Load all libraries, define global variables and paths and read
+- **Use a standardised header**: Include essential information like the purpose, authors,
+  contact, license, etc. of the script.
+- **Initialise at the top**: Load all libraries, define global variables and paths, and read
   all data in one block at the top instead of throughout the script.
 - **Use section headers**: Guide readers through your scripts with section headers.
   In many IDEs, you can navigate these sections using a script outline.
 - **Creating a script template**: Create a new script from a pre-structured template
- where you can fill out the relevant information. In RStudio, you can checkout code snippets, that allow you to easily load template code and script sections in your scripts [^2].
+ where you can fill out the relevant information. In RStudio, you can check out code snippets that allow you to easily load template code and script sections in your scripts [^2].
 
 :::{.callout-tip}
 
