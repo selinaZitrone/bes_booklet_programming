@@ -37,7 +37,7 @@ easily.
 
 {{< include sections/02_modular_functional_code.qmd >}}
 
-## Testing code
+## Defensive Programming
 
 {{< include sections/03_testing_code.qmd >}}
 

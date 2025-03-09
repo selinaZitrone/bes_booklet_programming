@@ -1,3 +1,35 @@
--   Unit tests
--   Integration tests
--   Test-driven development
+Defensive programming is all about anticipating errors and writing robust code. The aim is to ensure that when your code fails it does so with well-defined errors, and rests on the idea that we expect our code to fail. By applying a defensive programming philosophy (and adding checks and tests into the code), you can find unexpected behaviour sooner. Although this means a bit more work at the start it will make debugging the code a lot easier at a later date.
+
+### Checking the behaviour of a function
+
+One aspect of a function that we can check is that it is behaving as we expect. This can include ensuring that the data types are correct (*e.g.,* is the input actually a number and not a character?), or testing the boundaries of the data (*e.g.,* asserting that two dataframes are the same dimensions or contain the same variables). Since a function only does what is specified it is also important that one specifies what it should not do. Along with adding checks into your function is is also useful to include a a defined error messages should those checks fail as it makes it easier to try and correct the error.
+
+::: {.callout-tip collapse="true"}
+## Writing checks and good error messages
+
+Knowing that a check fails is already a good starting point (because we know that something is not behaving as it should), but writing the error message that explains *how* the check is failing is even better. If the error message has additional information it will probably already give us an idea as to what is happening that is resulting in the unexpected behaviour.
+
+For example lets say we have a function designed to count items by summing a vector. Since we are counting we want the input data to be a vector of integers (whole numbers), however it is also possible to sum a vector of floats (decimal points). Tis means that if you were to input a vector of floats the function would still be able to sum the numbers, however this is not the specified job of the function. Adding a check that asserts that the input vector is of the type integer as a way to prevent unintended misuse of a functions.
+
+The logical check would be to see if `typeof(input_vector) == Integer`, and then throwing an error if this clause is not met. Although having an error message of "input data is not of type integer" is already informative it is useful to add some additional info such as to exactly what the input data type is *e.g.,* "input data is not of type integer but rather type float".
+:::
+
+### Testing the answers of a function
+
+When we are conducting experiments we often conduct rigorous testing to ensure that results are reliable and accurate - why should that be any different when you are developing your code? By testing your code you can be sure that it is working as intended (giving you the correct answer). While the idea of developing tests may feel a bit excessive when starting out with coding, it is valuable to be aware of these principles as it provides a conceptual basis from which you can develop code that meets the expectations associated with conducting 'good' science.
+
+#### Unit tests
+
+Unit testing focuses on testing *individual functions* of your codebase to ensure that a function is doing what it should be doing and meets the specified requirements in a formalised and automated manner. At a high level the aim of unit tests is to make sure that the underlying maths of your function is correct. This can be done by inputting a value into the function for which you know what the output (answer) is and testing if the answer that the function gives you is the same.
+
+#### Integration tests
+
+Integration tests are more about ensuring that the parts fit into the whole. So going back to the data analysis example - we want to make sure that the output from our data cleaning function is able to seamlessly act as the input for our data analysis function. Alternatively you might want to run integration tests when you are introducing new features (functions) to your project and need to make sure that these do not break or alter the behaviour of your existing workflow.
+
+#### Test-driven development
+
+Test-driven development (TDD) is an approach to software development whereby tests are written before the actual code, with the idea that this will ensure the reliability of your code since you are focusing on identifying the desired behaviour of the system from the start. Essentially the idea is that you write a small test that defines the desired functionality, write the minimum code necessary to pass that test, and refactor the code to improve structure and performance. This approach is a way of ensuring the reliability of your code since you are predefining the parameters as well as expected outputs before you even start coding up the project.
+
+### Debugging and logging
+
+Debugging is the process of finding and resolving errors in our code. Code that has well thought out checks and error messages should be easy to debug as the problem is already identified and isolated. Creating logs is a comprehensive way to document the behaviour of the *entire* workflow. Logs are usually created by an automated workflow that runs through everything and records events or messages (that you have specified) as it goes and allows your to diagnose and troubleshoot issues. In addition to identifying errors/bugs log messages can also give information on the state of the workflow *e.g.,* job $x$ is complete and outputs are saved at `PATH`. Unless you are developing extremely complex workflows or packages it might make sense to only log errors (cases where the code has failed either to run or pass a test) to aid in the debugging process.
