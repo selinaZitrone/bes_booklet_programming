@@ -1,21 +1,141 @@
-- Develop consistent workflows/habits/conventions for your projects
-  - apply them to every project
-  - start simple
+## Have a consistent coding style
 
-- Think about your workflow beforehand
+Consistency improves readability and maintainability. It helps others to quickly understand your project's logic and workflows. 
 
-- While working, keep in mind that someone else (or you from the future) wants to understand, run and reuse the code
-- Formatting code and style guides
-    - Auto-formatting in IDEs
+### Follow a style guide
 
-- Have a naming convention for
-  - object and function names
-  - files (link to the project structure section)
+Every programming language has a style guide for things like
+indentation, spacing and naming conventions for variables and functions. Check the style guide for the languages you use to get an overview [^1].
 
-- Document and comment your code properly
-  - Comment on why
-- Properly structure your scripts
-  - Consider a standardized header explaining purpose of script, author, etc.
-  - load packages on top, then global variables, paths etc. and only then the code
-  - Separate your scripts into sections
-  - If a script becomes to long, split it
+The cool thing is, that there are tools to help you enforce a consistent style across a codebase:
+
+- **Formatters**: Can auto-format your script to eliminate inconsistencies.
+- **Linters**: Can analyze your code and list areas for improvement.
+
+Using such tools is an easy win to improve your code base and it is very satisfying to
+see your whole script automatically transforming into a good practice style.
+
+::: {.callout-tip}
+
+## Using formatters and Linters
+
+The details of this depend on your combination of IDE (the software application that 
+helps with code development, e.g. RStudio) and programming language. Just search for the right formatters and linters for your setup. 
+
+##### R and RStudio
+
+- **Auto-format**: Open the command palette (`Ctrl/Cmd + Shift + P`) and search for "format". Use "Reformat Current Document" to auto-format your code. Toggle "Reformat documents on save" for convenience. You can also chose your own "Code formatter" but the default option "Styler", which applies the tidyverse style guide is already a very good option.
+- **Lint**: Install the `lintr` package and search for "lint" options in the command palette. Use "Lint current file" or "Lint current package" to list style problems.
+
+#### Python and VScode
+
+<!-- todo: this still needs to be written -> but maybe it is anyways already too long and too specific? -->
+- **Auto-format**: Open the command palette (`Ctrl/Cmd + Shift + P`) and search for "Format Document". You can also enable "Format on Save" in VS Code settings and select a default formatter in the VS Code settings.
+- **Lint**: Install a linter like `pylint` or `flake8` and configure it in VS Code settings.
+
+#### Julia and VScode
+
+- **Auto-format**: Open the command palette (Ctrl/Cmd + Shift + P) and search for "Format Document". You can also enable "Format on Save" in VS Code settings and select a default formatter in the VS Code settings. `JuliaFormatter is packaged within the Julia extension and has 'sane' defaults but a user can also specify their own style configurations.
+- **Lint**: The Julia extension is by default statically linted, you can modify this behavior in your workplace settings
+
+:::
+  
+### Have a naming convention
+
+Use clear and descriptive names for files, variables, functions, and modules. 
+The goal of a good naming conventions is that it is immediately clear to the reader
+what is behind any file or object.
+To learn about good practice names for your files, please refer to the section on project structure. For objects in your codebase you can follow these tips:
+
+- **Concise and Descriptive**: Variable names are usually nouns, and function names are verbs (see also in the [next section](sections/02_modular_functional_code.qmd)).
+- **Avoid Conflicts**: Don't use names of existing variables or functions, unless you are intentionally extending or overriding them (e.g. when developing an R package or a new method in Julia).
+- **Use consistent capitalization rules**: Each language community has a preferred naming style (e.g., `snake_case` for Python and R, `lowerCamelCase` for JavaScript). Check your language's style guide [^1].
+- **Develop rules and document them**: You can develop your own conventions where it 
+  is useful. This can include things like when and how to use abbreviations or rules
+  on how you name your functions (e.g. you might want to prefix all your helper functions with `zzz_` to mark them as helper functions). 
+
+:::{.callout-note}
+
+## Examples of good and bad object names
+
+**Bad** names do not reveal what is behind the variable/function and could be misleading.
+
+`temp`, `data1`, `data_function`, `my_function`
+
+**Good** names are human readable and tell the user what is behind the objects.
+
+`temperature_readings`, `user_data`, `read_data`, `run_binomial_model`
+
+:::
+
+It is good practice to establish and follow a naming convention throughout a project.
+It also helps to document your conventions and naming logic in the readme file
+of your project. This way, it is easy for collaborators to read and understand your 
+code but also to contribute using the same style.
+
+## Comment your code
+
+<!-- todo: In the old guide, there is an explanation of what comments are. I think we don't need to do that right? Everyone using code knows this I guess -->
+
+<!-- todo: Maybe this section could be much shorter? I copied some of the text from the old booklet which maybe is too verbose? -->
+
+How often have you revisited an old script six months down the line and not been able to figure out what you had been doing? Or have taken on a script from a collaborator and not been able to understand what their code is doing and why? 
+An easy win for making code more readable and reproducible is the liberal, and effective, use of comments. One good principle to adhere to is to comment the ‘why’ rather than the ‘what’. The code itself tells the reader what is being done, it is far more important to document the reasoning behind a particular section of code. 
+
+You can use inline comments for short explanations or block comments that span 
+multiple lines to summarize sections of code or provide detailed explanations.
+
+Don't forget to update your comments as your code evolves to avoid outdated or misleading information.
+
+## Structure your scripts
+
+In addition to writing legible code, you should structure your scripts in a consistent and
+logical way, so that readers can orient themselves easily in your codebase.
+
+Here are some things to consider:
+
+- **Split long scripts**: Make scripts do just one thing. If needed, you can
+  import multiple scripts that you need for your analysis (e.g. using `source` in R, `import` in Python, `include` in Julia).
+- **Use a standardized header**: Include essential information like the purpose, authors,
+  contact, license, etc. of the script
+- **Initialize at the top**: Load all libraries, define global variables and paths and read
+  all data in one block at the top instead of throughout the script.
+- **Use section headers**: Guide readers through your scripts with section headers.
+  In many IDEs, you can navigate these sections using a script outline.
+- **Creating a script template**: Create a new script from a pre-structured template
+ where you can fill out the relevant information. In RStudio, you can checkout code snippets, that allow you to easily load template code and script sections in your scripts [^2].
+
+:::{.callout-tip}
+
+## Example structure of R script for data analysis
+
+```r
+# Purpose: Analyze climate data
+# Author: Jane Doe, John Doe
+# Copyright/License: 
+# Contact: jane.doe@email.com
+# Date: 2025-02-20
+
+# Load libraries -------------------------------------------------------------
+library(tidyverse)
+
+# Define global variables ----------------------------------------------------
+rain_data_path <- "data/temperature_readings.csv"
+temp_data_path <- "data/rainall_readings.csv"
+
+# Load data ------------------------------------------------------------------
+temperature_data <- read_csv(temp_data_path)
+rainfall_data <- read_csv(rain_data_path)
+
+# Data processing ------------------------------------------------------------
+
+# Analysis -------------------------------------------------------------------
+
+# Output results -------------------------------------------------------------
+```
+
+:::
+
+[^1]: E.g. see the [PEP8 style guide for python](https://peps.python.org/pep-0008/), the [tidyverse styleguide for R](https://style.tidyverse.org/) or the [Julia style guide](https://docs.julialang.org/en/v1/manual/style-guide/)
+
+[^2]: [RStudio Code Snippets](https://support.posit.co/hc/en-us/articles/204463668-Code-Snippets-in-the-RStudio-IDE)
