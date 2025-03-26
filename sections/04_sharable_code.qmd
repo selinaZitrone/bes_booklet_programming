@@ -86,7 +86,7 @@ install.packages("renv")
 renv::init()
 ```
 
-In **Python**, you can use `pip` and `virtualenv` to manage dependencies. Create a virtual environment and install packages:
+In **Python**, you can use `pip` and `virtualenv` to manage dependencies. Alternatively using `venv` (a standard package shipped with **Python 3**), which supports lightweight 'virtual environments' that hosts its own set of independent packages Create a virtual environment and install packages:
 
 ```python
 python -m venv env
