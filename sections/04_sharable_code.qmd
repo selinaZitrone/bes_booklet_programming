@@ -105,7 +105,7 @@ Pkg.instantiate()
 
 #### 3: Use a container
 
-A more advanced approach is to use containers, such as Docker, to encapsulate your entire environment. This ensures that your code runs in the exact same environment, regardless of the host system.
+A more advanced approach is to use containers, such as Docker or Podman, to encapsulate your entire environment. This ensures that your code runs in the exact same environment, regardless of the host system.
 It is more technical to set up, but it allows you to distribute the exact same environment as the one you used. If you want others to be able to reproduce your results, and your analysis depends on software that can be difficult to install, it is an option that might be worth exploring.
 
 If you are using R, you can have a look at the `rocker` project [^3] that helps you provide docker containers for R environments ([@nust2020, @boettiger2017].)
@@ -147,7 +147,7 @@ mean_value = Statistics.mean(data)
 
 ### Other Considerations
 
-- **Set a Seed**: Explicitly setting a random seed ensures reproducibility. This is important when your code involves random number generation. For this, you can use `set.seed(123)` in R, `random.seed(123)` in Python, and `Random.seed!(123)` in Julia.
+- **Set a Seed**: Explicitly setting a random seed ensures reproducibility. This is important when your code involves random number generation, which often occurs in some statistical modelling. For this, you can use `set.seed(123)` in R, `random.seed(123)` in Python, and `Random.seed!(123)` in Julia.
 
 
 [^1]: [@herePackage]
