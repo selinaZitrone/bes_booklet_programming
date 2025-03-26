@@ -1,4 +1,4 @@
-## Have a consistent coding style
+## Have a consistent programming style
 
 Consistency improves readability and maintainability. It helps others to quickly understand your project's logic and workflows. 
 

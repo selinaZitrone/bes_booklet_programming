@@ -9,9 +9,9 @@ The main goal of adopting good programming practices is to make your code consis
 
 :::{.callout-tip}
 
-## The mindset of good practice coding
+## The mindset of good practice programming
 
-While coding, imagine how someone else (or you from two years in the future) will see the project for the first time. Will they be able to understand and use your project? The goal of writing reproducible code is to ensure that the answer to this question is "yes." You can also practically test this by sending your project to a colleague and asking them to try to understand and run the code by themselves.
+While writing code, imagine how someone else (or you from two years in the future) will see the project for the first time. Will they be able to understand and use your project? The goal of writing reproducible code is to ensure that the answer to this question is "yes." You can also practically test this by sending your project to a colleague and asking them to try to understand and run the code by themselves.
 
 :::
 
@@ -22,11 +22,11 @@ Before we dive into the specifics, we have two tips for you:
 
 - **Plan ahead**: Familiarise yourself with good practice rules for your language and start implementing them from the beginning. It's easier than cleaning and restructuring the entire project later.
 - **Prioritise progress over perfection**: If you are just at the start of your 
-journey to good coding practice, don't feel overwhelmed by all the rules and 
+journey to good programming practice, don't feel overwhelmed by all the rules and 
 conventions. You don't need a perfect workflow and codebase from the beginning.
-Start with one guideline and build from there. Writing reproducible and legible code will become a habit over time, and you will notice that this does not make coding more burdensome but actually faster, more fun, and rewarding.
+Start with one guideline and build from there. Writing reproducible and legible code will become a habit over time, and you will notice that this does not make programming more burdensome but actually faster, more fun, and rewarding.
 - **Communicate your rules**: Especially in collaborative projects, it is helpful to write down the rules for contributing code to your project. This can also be helpful in 
-your individual project as it helps others to understand your coding logic more
+your individual project as it helps others to understand your programming logic more
 easily.
 
 ## Structured workflow/readable code

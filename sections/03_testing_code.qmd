@@ -16,7 +16,7 @@ The logical check would be to see if `typeof(input_vector) == Integer`, and then
 
 ### Testing the answers of a function
 
-When we are conducting experiments, we often conduct rigorous testing to ensure that results are reliable and accurate. Why should that be any different when you are developing your code? By testing your code, you can be sure that it is working as intended (giving you the correct answer). While the idea of developing tests may feel a bit excessive when starting out with coding, it is valuable to be aware of these principles, as it provides a conceptual basis from which you can develop code that meets the expectations associated with conducting 'good' science.
+When we are conducting experiments, we often conduct rigorous testing to ensure that results are reliable and accurate. Why should that be any different when you are developing your code? By testing your code, you can be sure that it is working as intended (giving you the correct answer). While the idea of developing tests may feel a bit excessive when starting out with programming, it is valuable to be aware of these principles, as it provides a conceptual basis from which you can develop code that meets the expectations associated with conducting 'good' science.
 
 #### Unit tests
 
