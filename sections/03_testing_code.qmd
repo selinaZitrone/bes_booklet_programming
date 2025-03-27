@@ -20,7 +20,26 @@ When we are conducting experiments, we often conduct rigorous testing to ensure 
 
 #### Unit tests
 
-Unit testing focuses on testing individual functions of your codebase to ensure that a function is doing what it should be doing and meets the specified requirements in a formalised and automated manner. At a high level, the aim of unit tests is to make sure that the underlying maths of your function is correct. This can be done by inputting a value into the function for which you know what the output (answer) is and testing if the answer that the function gives you is the same.
+Unit testing focuses on testing individual functions of your codebase to ensure that a function is doing what it should be doing and meets the specified requirements in a formalised and automated manner. At a high level, the aim of unit tests is to make sure that the underlying maths/logic of your function is correct. This can be done by inputting a value into the function for which you know what the output (answer) is and testing if the answer that the function gives you is the same.
+
+::: {.callout-tip collapse="true"}
+## Writing and running unit tests
+
+Most programming languages have packages that will help with executing a test run. Usually this involves creating a separate directory (folder) where you can write your tests as well as where the testing workflows are hosted. Tests are typically run in a new language process, where the package itself, and any test-specific dependencies, are made available.
+
+##### R
+
+The `testthat` package [@testthat2011] is the commonly used testing framework and visually shows a pass, fail, or error for your tests. It easily integrates in your existing workflow, allowing for informal testing or the building of more 'complex' test suites.
+
+##### Python
+
+It is possible to write basic tests using `assert` to test if a statement evaluates to true. For writing more complex test the `unittest` module provides the flexibility to write more nuanced tests (assertions).
+
+##### Julia
+
+Julia allows you to write basic tests using the `@test` macro and will test that the expression evaluates to true. The `Pkg.jl` has a framework for building testing suites that are run when compiling a project or package.
+
+:::
 
 #### Integration tests
 
