@@ -32,7 +32,7 @@ one machine, while relative paths exist within the project no matter how the mac
 
 ## Avoid `setwd()` in R
 
-Use RStudio projects to automatically set the working directory to the project directory. Use the `here` package [^1] to construct paths relative to the project root:
+Use RStudio projects to automatically set the working directory to the project directory. Use the `here` package [^5] to construct paths relative to the project root:
 
 ```r
 # A relative path built with the here package
@@ -79,7 +79,7 @@ Using a package manager helps ensure that the correct versions of packages are i
 
 ## Create project local libraries
 
-In **R**, you can use the `renv` package [^2] to manage dependencies. Initialise `renv` in your project:
+In **R**, you can use the `renv` package [^6] to manage dependencies. Initialise `renv` in your project:
 
 ```r
 install.packages("renv")
@@ -108,7 +108,7 @@ Pkg.instantiate()
 A more advanced approach is to use containers, such as Docker or Podman, to encapsulate your entire environment. This ensures that your code runs in the exact same environment, regardless of the host system.
 It is more technical to set up, but it allows you to distribute the exact same environment as the one you used. If you want others to be able to reproduce your results, and your analysis depends on software that can be difficult to install, it is an option that might be worth exploring.
 
-If you are using R, you can have a look at the `rocker` project [^3] that helps you provide docker containers for R environments ([@nust2020, @boettiger2017].)
+If you are using R, you can have a look at the `rocker` project [^7] that helps you provide docker containers for R environments ([@nust2020, @boettiger2017].)
 
 ### Namespace conflicts
 
@@ -150,8 +150,8 @@ mean_value = Statistics.mean(data)
 - **Set a Seed**: Explicitly setting a random seed ensures reproducibility. This is important when your code involves random number generation, which often occurs in some statistical modelling. For this, you can use `set.seed(123)` in R, `random.seed(123)` in Python, and `Random.seed!(123)` in Julia.
 
 
-[^1]: [@herePackage]
+[^5]: [@herePackage]
 
-[^2]: [@renvPackage]
+[^6]: [@renvPackage]
 
-[^3]: [https://rocker-project.org/](https://rocker-project.org/)
+[^7]: [https://rocker-project.org/](https://rocker-project.org/)

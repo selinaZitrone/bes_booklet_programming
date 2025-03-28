@@ -56,10 +56,10 @@ Debugging is the process of finding and resolving errors in our code. Code that 
 ::: {.callout-tip collapse="true"}
 ## Debugging
 
-Generally speaking the IDE (*e.g.* RStudio [^4] or VSCode [^5]) you choose to use will have some form of a 'debug mode' that will allow you to run the code until a specified breakpoint (the point where you suspect the problem is arising), and allow you to look at and/or walk through the code, step-by-step at that point.
+Generally speaking the IDE (*e.g.* RStudio [^3] or VSCode [^4]) you choose to use will have some form of a 'debug mode' that will allow you to run the code until a specified breakpoint (the point where you suspect the problem is arising), and allow you to look at and/or walk through the code, step-by-step at that point.
 
 :::
 
-[^4]: [Debugging in RStudio](https://support.posit.co/hc/en-us/articles/205612627-Debugging-with-the-RStudio-IDE)
+[^3]: [Debugging in RStudio](https://support.posit.co/hc/en-us/articles/205612627-Debugging-with-the-RStudio-IDE)
 
-[^5]: [Debugging in VSCode](https://code.visualstudio.com/docs/debugtest/debugging)
+[^4]: [Debugging in VSCode](https://code.visualstudio.com/docs/debugtest/debugging)
