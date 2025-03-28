@@ -52,3 +52,14 @@ Test-driven development (TDD) is an approach to software development whereby tes
 ### Debugging and logging
 
 Debugging is the process of finding and resolving errors in our code. Code that has well-thought-out checks and error messages should be easy to debug, as the problem is already identified and isolated. Creating logs is a comprehensive way to document the behaviour of the entire workflow. Logs are usually created by an automated workflow that runs through everything and records events or messages (that you have specified) as it goes and allows you to diagnose and troubleshoot issues. In addition to identifying errors/bugs, log messages can also give information on the state of the workflow *e.g.,* job $x$ is complete and outputs are saved at `PATH`. Unless you are developing extremely complex workflows or packages, it might make sense to only log errors (cases where the code has failed either to run or pass a test) to aid in the debugging process.
+
+::: {.callout-tip collapse="true"}
+## Debugging
+
+Generally speaking the IDE (*e.g.* RStudio [^4] or VSCode [^5]) you choose to use will have some form of a 'debug mode' that will allow you to run the code until a specified breakpoint (the point where you suspect the problem is arising), and allow you to look at and/or walk through the code, step-by-step at that point.
+
+:::
+
+[^4]: [Debugging in RStudio](https://support.posit.co/hc/en-us/articles/205612627-Debugging-with-the-RStudio-IDE)
+
+[^5]: [Debugging in VSCode](https://code.visualstudio.com/docs/debugtest/debugging)
