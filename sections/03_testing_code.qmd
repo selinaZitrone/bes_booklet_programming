@@ -22,7 +22,7 @@ When we are conducting experiments, we often conduct rigorous testing to ensure 
 
 Unit testing focuses on testing individual functions of your codebase to ensure that a function is doing what it should be doing and meets the specified requirements in a formalised and automated manner. At a high level, the aim of unit tests is to make sure that the underlying maths/logic of your function is correct. This can be done by inputting a value into the function for which you know what the output (answer) is and testing if the answer that the function gives you is the same.
 
-::: {.callout-tip collapse="true"}
+::: {.callout-tip}
 ## Writing and running unit tests
 
 Most programming languages have packages that will help with executing a test run. Usually this involves creating a separate directory (folder) where you can write your tests as well as where the testing workflows are hosted. Tests are typically run in a new language process, where the package itself, and any test-specific dependencies, are made available.
@@ -53,7 +53,7 @@ Test-driven development (TDD) is an approach to software development whereby tes
 
 Debugging is the process of finding and resolving errors in our code. Code that has well-thought-out checks and error messages should be easy to debug, as the problem is already identified and isolated. Creating logs is a comprehensive way to document the behaviour of the entire workflow. Logs are usually created by an automated workflow that runs through everything and records events or messages (that you have specified) as it goes and allows you to diagnose and troubleshoot issues. In addition to identifying errors/bugs, log messages can also give information on the state of the workflow *e.g.,* job $x$ is complete and outputs are saved at `PATH`. Unless you are developing extremely complex workflows or packages, it might make sense to only log errors (cases where the code has failed either to run or pass a test) to aid in the debugging process.
 
-::: {.callout-tip collapse="true"}
+::: {.callout-tip}
 ## Debugging
 
 Generally speaking the IDE (*e.g.* RStudio [^3] or VSCode [^4]) you choose to use will have some form of a 'debug mode' that will allow you to run the code until a specified breakpoint (the point where you suspect the problem is arising), and allow you to look at and/or walk through the code, step-by-step at that point.

@@ -14,7 +14,7 @@ The key to writing effective functions is to keep it simple. A function should p
 
 As discussed in the [previous section](sections/01_structured_workflow.qmd), consistency is key to making your work easier for others to understand and follow. In terms of introducing functions into your workflow, make sure that you are consistent with how you name and describe them. If you use the term `init` in one function, you should use it everywhere; do not use `initialise` or `int` elsewhere. Because functions perform an action on an object, having a combination of `verb` + `object` in the name makes sense. Having a consistent design pattern (terms and word order) makes your code easier to understand and serves as a template for further development.
 
-::: {.callout-tip collapse="true"}
+::: {.callout-tip}
 ## Example
 
 Let's say I have two functions; one initialises an object as a number and the other as a character. Bad practice would be to name them as follows:
