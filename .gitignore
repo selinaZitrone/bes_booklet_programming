@@ -4,5 +4,12 @@
 .Ruserdata
 
 /.quarto/
-*.html
 main_files/
+
+# ignore rendered files
+*.html
+*.docx
+*.pdf
+
+# Ignore style folders etc.
+sections/*_files/
