@@ -75,10 +75,6 @@ code but also to contribute using the same style.
 
 ## Comment your code
 
-<!-- todo: In the old guide, there is an explanation of what comments are. I think we don't need to do that right? Everyone using code knows this I guess -->
-
-<!-- todo: Maybe this section could be much shorter? I copied some of the text from the old booklet which maybe is too verbose? -->
-
 How often have you revisited an old script six months down the line and not been able to figure out what you had been doing? Or have taken on a script from a collaborator and not been able to understand what their code is doing and why? 
 An easy win for making code more readable and reproducible is the liberal and effective use of comments. One good principle to adhere to is to comment the ‘why’ rather than the ‘what’. The code itself tells the reader what is being done; it is far more important to document the reasoning behind a particular section of code. 
 

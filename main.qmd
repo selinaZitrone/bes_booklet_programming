@@ -2,10 +2,10 @@
 title: "BES booklet programming"
 ---
 
-## Introduction
+# Introduction
 
 
-The main goal of adopting good programming practices is to make your code consistent, readable, and maintainable. This benefits you by making your work easier and more enjoyable in the long run, and it also ensures that your science is reproducible. Additionally, good programming practices are crucial in collaborative projects, allowing you to work efficiently and seamlessly with others. 
+The main goal of adopting good programming practices is to make your code readable, maintainable, and reproducible. This benefits you by making your work easier and more enjoyable in the long run, and it also ensures that your science is reproducible. Additionally, good programming practices are crucial in collaborative projects, allowing you to work efficiently and seamlessly with others. 
 
 :::{.callout-tip}
 
@@ -15,10 +15,10 @@ While writing code, imagine how someone else (or you from two years in the futur
 
 :::
 
-You don't have to reinvent the wheel to write reproducible, legible, and maintainable code. There are many general and language-specific guidelines and
+You don't have to reinvent the wheel to write readable, maintainable, and reproducible code. There are many general and language-specific guidelines and
 tips that you can follow, and we list the most essential ones below.
 
-Before we dive into the specifics, we have two tips for you:
+Before we dive into the specifics, we have three tips for you:
 
 - **Plan ahead**: Familiarise yourself with good practice rules for your language and start implementing them from the beginning. It's easier than cleaning and restructuring the entire project later.
 - **Prioritise progress over perfection**: If you are just at the start of your 
@@ -29,25 +29,25 @@ Start with one guideline and build from there. Writing reproducible and legible 
 your individual project as it helps others to understand your programming logic more
 easily.
 
-## Structured workflow/readable code
+# Structured workflow and readable code
 
 {{< include sections/01_structured_workflow.qmd >}}
 
-## Modular and functional code
+# Modular and functional code
 
 {{< include sections/02_modular_functional_code.qmd >}}
 
-## Defensive Programming
+# Defensive Programming
 
 {{< include sections/03_testing_code.qmd >}}
 
-## Share code
+# Share code
 
 {{< include sections/04_sharable_code.qmd >}}
 
-## Conclusion
+# Conclusion
 
 - Checklist
 
-## References
+# References
 
