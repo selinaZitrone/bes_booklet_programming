@@ -15,5 +15,7 @@ metadata:
 format:
   html:
     toc: true
+  docx:
+    toc: false
 
 bibliography: references.bib
